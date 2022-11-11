@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
-import { userList, clearUserList } from "../store/actions";
+import { userList, clearUserList } from "../../store/actions";
 
 class users extends Component {
     componentDidMount() {
