@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { userList } from "../../store/actions";
+import { userList } from "../../store/actions/users/users-actions";
 
 const Users = () => {
     const dispatch = useDispatch();
