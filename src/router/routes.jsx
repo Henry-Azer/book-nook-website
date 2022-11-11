@@ -1,9 +1,9 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Home from "./components/home";
-import Users1 from "./components/users-class";
-import Users2 from "./components/users-hooks";
+import Home from "../components/home";
+import Users1 from "../components/user/users-class";
+import Users2 from "../components/user/users-hooks";
 
 export default function routes() {
     return (
