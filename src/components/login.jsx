@@ -10,14 +10,14 @@ export default function login() {
                <Circle
                     size="200"
                     backgroundColor="beige"
-                    duration="15"
+                    duration="16"
                     top="10"
                     left="-150"
                />
                <Circle
                     size="300"
                     backgroundColor="light-purple"
-                    duration="22"
+                    duration="20"
                     top="200"
                     right="-200"
                />
