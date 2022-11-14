@@ -63,19 +63,33 @@ input {
 
 ::placeholder {
      /* Chrome, Firefox, Opera, Safari 10.1+ */
-     color: white;
-     opacity: 1; /* Firefox */
+     color: white !important;
+     opacity: 1 !important; /* Firefox */
 }
 
 :-ms-input-placeholder {
      /* Internet Explorer 10-11 */
-     color: white;
+     color: white !important;
 }
 
 ::-ms-input-placeholder {
      /* Microsoft Edge */
-     color: white;
+     color: white !important;
 }
+.btn-hover {
+     transition: 0.5s;
+}
+.btn-hover:hover {
+     background-color: white !important;
+     color: var(--dark-purple) !important;
+}
+.book-mark {
+     transition: 0.5s;
+}
+.btn-hover:hover .book-mark {
+     transform: translateY(8px) scaleY(1.2);
+}
+
 /* ----- GLOBAL PROPS END ----- */
 /* -------------------------------------------------------- */
 
@@ -170,21 +184,21 @@ input {
      30%,
      50%,
      70% {
-          transform: translateX(-10px);
+          transform: translateX(-10px) scale(1.1);
      }
 
      20%,
      40%,
      60% {
-          transform: translateX(10px);
+          transform: translateX(10px) scale(1.2);
      }
 
      80% {
-          transform: translateX(8px);
+          transform: translateX(8px) scale(1.6);
      }
 
      90% {
-          transform: translateX(-8px);
+          transform: translateX(-8px) scale(1.1);
      }
 }
 /* -------------------------------------------------------- */
