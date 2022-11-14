@@ -41,7 +41,7 @@ export default function login() {
                                    placeholder="Email"
                               />
                               <input
-                                   type="text"
+                                   type="password"
                                    className="w-75 rounded-5 form-control light-purple-border text-white"
                                    placeholder="Password"
                               />

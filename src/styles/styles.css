@@ -5,6 +5,10 @@
      --dark-purple: #000020;
 }
 
+input::selection {
+     background: white;
+     color: var(--dark-purple);
+}
 ::selection {
      background: var(--light-purple);
      color: white;
