@@ -80,15 +80,17 @@ input {
      /* Microsoft Edge */
      color: white !important;
 }
-.btn-hover {
+.btn-hover,
+.book-mark,
+.link-hover {
      transition: 0.5s;
 }
 .btn-hover:hover {
      background-color: white !important;
      color: var(--dark-purple) !important;
 }
-.book-mark {
-     transition: 0.5s;
+.link-hover:hover {
+     color: var(--light-purple) !important;
 }
 .btn-hover:hover .book-mark {
      transform: translateY(8px) scaleY(1.2);
