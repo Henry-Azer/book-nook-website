@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function circle(props) {
+const Circle = (props)=> {
      return (
           <div
                className={
@@ -20,3 +20,4 @@ export default function circle(props) {
           ></div>
      );
 }
+export default Circle;

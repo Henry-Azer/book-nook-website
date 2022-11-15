@@ -80,6 +80,11 @@ input {
      /* Microsoft Edge */
      color: white !important;
 }
+
+button:active{
+     background-color:var(--light-purple) !important;
+     border: none !important;
+}
 .btn-hover,
 .book-mark,
 .link-hover {
