@@ -9,10 +9,11 @@ import { createStore, applyMiddleware } from "redux";
 import reducers from "./store/reducers";
 
 import Routes from "./router/routes";
+import TranslateButton from "./components/base/buttons/translate-button";
 
-import "./locales/i18n"
+import "./locales/i18n";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/styles.css";
 
 const createStoreWithMiddleware =
@@ -27,6 +28,7 @@ ReactDOM.render(
           )}
      >
           <BrowserRouter>
+               <TranslateButton />
                <Routes />
           </BrowserRouter>
      </Provider>,

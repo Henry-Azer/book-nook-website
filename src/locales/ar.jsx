@@ -1,4 +1,10 @@
 const ar = {
+	Login: {
+		login: "تسجيل الدخول",
+		email: "البريد الالكتروني",
+		password: "كلمة المرور",
+		new_acc: "انشاء حساب جديد ؟",
+	 },
 	form: {
 		is_required: "مطلوب",
 		must_be_valid: "يجب أن تكون صالحة"

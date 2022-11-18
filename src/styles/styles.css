@@ -101,6 +101,12 @@ button:active{
      transform: translateY(8px) scaleY(1.2);
 }
 
+.translate-button{
+     bottom: 30px;
+     right: 30px;
+     z-index: 111111111;
+}
+
 /* ----- GLOBAL PROPS END ----- */
 /* -------------------------------------------------------- */
 

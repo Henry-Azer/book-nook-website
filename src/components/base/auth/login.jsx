@@ -7,7 +7,7 @@ import BookmarkButton from "../buttons/bookmark-button";
 import { useTranslation } from "react-i18next";
 
 const Login = () => {
-     const { t } = useTranslation();
+     const { t, i18n } = useTranslation();
 
      return (
           <div className="login-route vh-100 w-100 position-relative overflow-hidden">
@@ -32,7 +32,7 @@ const Login = () => {
                     top="200"
                     right="-200"
                />
-               <FormCard title="Login">
+               <FormCard title={t("Login:login")}>
                     <input
                          type="text"
                          className="w-75 rounded-5 form-control light-purple-border text-white"

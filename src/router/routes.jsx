@@ -6,11 +6,11 @@ import Login from "../components/base/auth/login";
 import Users2 from "../components/user/users-hooks";
 
 export default function routes() {
-    return (
-        <Switch>  
-            <Route path="/users" component={Users2} />
-            <Route path="/login" component={Login} />
-            <Route exact path="/" component={Home} />
-        </Switch>
-    );
+     return (
+          <Switch>
+               <Route path="/users" component={Users2} />
+               <Route path="/login" component={Login} />
+               <Route exact path="/" component={Home} />
+          </Switch>
+     );
 }
