@@ -35,12 +35,16 @@ const Login = () => {
                <FormCard title={t("Login:login")}>
                     <input
                          type="text"
-                         className="w-75 rounded-5 form-control light-purple-border text-white"
+                         className={`w-75 rounded-5 form-control light-purple-border text-white ${
+                              i18n.resolvedLanguage === "ar" && "text-end"
+                         }`}
                          placeholder={t("Login:email")}
                     />
                     <input
                          type="password"
-                         className="w-75 rounded-5 form-control light-purple-border text-white"
+                         className={`w-75 rounded-5 form-control light-purple-border text-white ${
+                              i18n.resolvedLanguage === "ar" && "text-end"
+                         }`}
                          placeholder={t("Login:password")}
                     />
                     <BookmarkButton>{t("Login:login")}</BookmarkButton>
