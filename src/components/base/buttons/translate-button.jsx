@@ -5,7 +5,7 @@ const TranslateButton = () => {
      const { i18n } = useTranslation();
      return (
           <button
-               className="translate-button btn btn-hover position-fixed text-white position-relative rounded-circle light-purple-background"
+               className="translate-button btn btn-hover position-fixed text-white rounded-circle shadow light-purple-background"
                onClick={() =>
                     i18n.changeLanguage(
                          i18n.resolvedLanguage === "en" ? "ar" : "en"
