@@ -10,6 +10,8 @@ import reducers from "./store/reducers";
 
 import Routes from "./router/routes";
 
+import "./locales/i18n"
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles/styles.css";
 

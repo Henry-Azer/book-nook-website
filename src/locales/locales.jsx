@@ -1,9 +1,9 @@
 import en from "@/locales/en";
 import ar from "@/locales/ar";
 
-const locales = {
+const Locales = {
 	en,
 	ar
 };
 
-export default locales;
+export default Locales;

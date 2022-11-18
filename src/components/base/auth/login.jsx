@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import FormCard from "../forms/form-card";
 import Circle from "../animation/circle";
 import BookmarkButton from "../buttons/bookmark-button";
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
+     const { t } = useTranslation();
+
      return (
           <div className="login-route vh-100 w-100 position-relative overflow-hidden">
                <Circle
@@ -33,16 +36,16 @@ const Login = () => {
                     <input
                          type="text"
                          className="w-75 rounded-5 form-control light-purple-border text-white"
-                         placeholder="Email"
+                         placeholder={t("Login:email")}
                     />
                     <input
                          type="password"
                          className="w-75 rounded-5 form-control light-purple-border text-white"
-                         placeholder="Password"
+                         placeholder={t("Login:password")}
                     />
-                    <BookmarkButton>Login</BookmarkButton>
+                    <BookmarkButton>{t("Login:login")}</BookmarkButton>
                     <Link to="/register" className="link-hover text-white">
-                         Create a new account ?
+                         {t("Login:new_acc")}
                     </Link>
                </FormCard>
           </div>
