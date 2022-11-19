@@ -2,7 +2,7 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 import Home from "../components/home";
-import Login from "../components/base/auth/login";
+import Login from "../components/auth/login";
 import Users2 from "../components/user/users-hooks";
 
 export default function routes() {
