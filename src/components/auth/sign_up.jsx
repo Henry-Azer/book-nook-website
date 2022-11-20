@@ -118,7 +118,12 @@ const SignUp = () => {
                                    >
                                         {t("sign_up:birth_date")}
                                    </h1>
-                                   <div className="d-flex justify-content-center">
+                                   <div
+                                        className={`d-flex align-items-center ${
+                                             i18n.resolvedLanguage === "ar" &&
+                                             "flex-row-reverse"
+                                        }`}
+                                   >
                                         {form_inputs
                                              .slice(2, 5)
                                              .map((input, index) => (
