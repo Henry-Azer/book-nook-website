@@ -1,5 +1,8 @@
 const ar = {
+	// sing_upppppppppppppppp
+	// sign-up
 	sign_up: {
+		// fnaaaaaaaaaaaaaame
 		fname: "الأسم الأول",
 		lname: "الأسم الأخير",
 		phone_num: "رقم الهاتف",

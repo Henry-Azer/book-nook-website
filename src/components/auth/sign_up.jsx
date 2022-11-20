@@ -14,8 +14,15 @@ import BookmarkButton from "../base/buttons/bookmark-button";
 const SignUp = () => {
      const { t, i18n } = useTranslation();
 
+     // what is form number? 
+     // that's not the best way to do multi step form
+     // good thinking but not here XD
      const [formNumber, setFormNumber] = useState(1);
 
+     // variable example: formInputs - phoneNumber - confirmPassword
+     // fname!!!!!!!!!!!
+     // fname!!!!!!!!
+     // f naaaaaaaaaaaaaaaaaaaaame !!!!!!!!!!!!1111
      const form_inputs = [
           "fname",
           "lname",
@@ -28,6 +35,8 @@ const SignUp = () => {
           "confirm_password",
      ];
 
+     //this calls the backend to sign in each time the calss render -_-
+     // our app free we don't have to fuck it like that
      axios.post(
           "https://henry-book-nook-backend.herokuapp.com/book-service/api/auth/log-in",
           { email: "henryazer@outlook.com", password: "12345678" }
@@ -63,7 +72,9 @@ const SignUp = () => {
                     bottom="300"
                     left="-70"
                />
+               {/* sign-up :) XD */}
                <FormCard title={t("sign_up:sign_up")}>
+                    {/* WTFFFFF, change it's way, use another way to achieve it */}
                     {formNumber === 1 ? (
                          <>
                               {form_inputs.slice(0, 2).map((input, index) => (

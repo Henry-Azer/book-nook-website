@@ -7,6 +7,12 @@ import BookmarkButton from "../base/buttons/bookmark-button";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 
+// file name of Route Component must be like it's class name
+// example: Home - SignIn - SignUp
+// to know it represents a route for me
+// the other used components its used for the route or major components
+// it's just a components not a major route for me
+// example: bookmark-button - translate-button
 const SignIn = () => {
      const { t, i18n } = useTranslation();
 
