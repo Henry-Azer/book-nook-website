@@ -49,6 +49,9 @@ body {
 .light-purple-background {
      background-color: var(--light-purple);
 }
+.dark-purple-background {
+     background-color: var(--dark-purple);
+}
 .light-purple-border {
      border-color: var(--light-purple) !important;
 }
@@ -133,6 +136,46 @@ button:active {
      width: 35px;
      top: 15px;
      left: 15px;
+}
+
+.select select {
+     cursor: pointer !important;
+     outline: 0 !important;
+     appearance: none !important;
+     -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+}
+.select select::-ms-expand {
+     display: none !important;
+}
+.select select:hover,
+.select select:focus {
+     color: var(--dark-purple) !important;
+     background: white !important;
+}
+.select select:disabled {
+     opacity: 0.5 !important;
+     pointer-events: none !important;
+}
+.select_arrow {
+     position: absolute !important;
+     top: 15px;
+     right: 15px;
+     width: 0px;
+     height: 0px;
+     border: solid white;
+     border-width: 0 3px 3px 0;
+     display: inline-block;
+     padding: 3px;
+     transform: rotate(45deg);
+     -webkit-transform: rotate(45deg);
+}
+.select select:hover ~ .select_arrow,
+.select select:focus ~ .select_arrow {
+     border-color: #000000;
+}
+.select select:disabled ~ .select_arrow {
+     border-top-color: #cccccc;
 }
 /* ----- GLOBAL PROPS END ----- */
 /* -------------------------------------------------------- */

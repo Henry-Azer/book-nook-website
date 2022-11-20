@@ -18,11 +18,11 @@ const SignUp = () => {
      const form_inputs = [
           "fname",
           "lname",
-          "phone_num",
           "day",
           "month",
           "year",
           "email",
+          "phone_num",
           "password",
           "confirm_password",
      ];
@@ -65,7 +65,7 @@ const SignUp = () => {
                <FormCard title={t("sign_up:sign_up")}>
                     {formNumber === 1 ? (
                          <>
-                              {form_inputs.slice(0, 3).map((input, index) => (
+                              {form_inputs.slice(0, 2).map((input, index) => (
                                    <input
                                         key={index}
                                         type="text"
@@ -76,13 +76,32 @@ const SignUp = () => {
                                         placeholder={t(`sign_up:${input}`)}
                                    />
                               ))}
+
+                              <div class="select w-75 position-relative d-inline-block">
+                                   <select
+                                        defaultValue=""
+                                        className="d-inline-block w-100 px-3 py-2 border-1 light-purple-border rounded-5 bg-transparent text-white"
+                                   >
+                                        <option value="" disabled>
+                                             {t("sign_up:gender")}
+                                        </option>
+                                        <option value="male">
+                                             {t("sign_up:male")}
+                                        </option>
+                                        <option value="female">
+                                             {t("sign_up:female")}
+                                        </option>
+                                   </select>
+                                   <div class="select_arrow"></div>
+                              </div>
+
                               <div className="w-75 d-flex align-items-center">
                                    <h1 className="fs-6 w-75">
                                         {t("sign_up:birth_date")}
                                    </h1>
                                    <div className="d-flex justify-content-center">
                                         {form_inputs
-                                             .slice(3, 6)
+                                             .slice(2, 5)
                                              .map((input, index) => (
                                                   <input
                                                        key={index}
@@ -121,7 +140,7 @@ const SignUp = () => {
                               >
                                    <BsArrowLeftCircle className="w-100 h-100" />
                               </button>
-                              {form_inputs.slice(6, 9).map((input, index) => (
+                              {form_inputs.slice(5, 9).map((input, index) => (
                                    <input
                                         key={index}
                                         type="text"

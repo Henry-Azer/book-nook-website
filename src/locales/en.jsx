@@ -13,6 +13,9 @@ const en = {
           confirm_password: "Confirm password",
           sign_up: "Sign up",
           have_acc: "Already have account ?",
+          gender: "Select your gender",
+          male: "Male",
+          female: "Female",
      },
      sign_in: {
           sign_in: "Sign in",
