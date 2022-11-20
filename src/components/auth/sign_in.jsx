@@ -7,7 +7,7 @@ import BookmarkButton from "../base/buttons/bookmark-button";
 import { useTranslation } from "react-i18next";
 import axios from "axios";
 
-const Login = () => {
+const SignIn = () => {
      const { t, i18n } = useTranslation();
 
      axios.post(
@@ -16,7 +16,7 @@ const Login = () => {
      ).then((res) => console.log(res));
 
      return (
-          <div className="login-route vh-100 w-100 position-relative overflow-hidden">
+          <div className="sign-in-route vh-100 w-100 position-relative overflow-hidden">
                <Circle
                     size="200"
                     backgroundColor="beige"
@@ -38,27 +38,27 @@ const Login = () => {
                     top="200"
                     right="-200"
                />
-               <FormCard title={t("Login:login")}>
+               <FormCard title={t("sign_in:sign_in")}>
                     <input
                          type="text"
                          className={`w-75 rounded-5 form-control light-purple-border text-white ${
                               i18n.resolvedLanguage === "ar" && "text-end"
                          }`}
-                         placeholder={t("Login:email")}
+                         placeholder={t("sign_in:email")}
                     />
                     <input
                          type="password"
                          className={`w-75 rounded-5 form-control light-purple-border text-white ${
                               i18n.resolvedLanguage === "ar" && "text-end"
                          }`}
-                         placeholder={t("Login:password")}
+                         placeholder={t("sign_in:password")}
                     />
-                    <BookmarkButton>{t("Login:login")}</BookmarkButton>
-                    <Link to="/register" className="link-hover text-white">
-                         {t("Login:new_acc")}
+                    <BookmarkButton>{t("sign_in:sign_in")}</BookmarkButton>
+                    <Link to="/sign-up" className="link-hover text-white">
+                         {t("sign_in:new_acc")}
                     </Link>
                </FormCard>
           </div>
      );
 };
-export default Login;
+export default SignIn;

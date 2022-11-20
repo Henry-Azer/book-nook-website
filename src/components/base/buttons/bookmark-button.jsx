@@ -3,7 +3,10 @@ import book_mark from "../../../assets/images/Asset-1.png";
 
 const BookmarkButton = (props) => {
      return (
-          <button className="btn btn-hover text-white position-relative rounded-5 w-50 light-purple-background d-block mx-auto">
+          <button
+               className="btn btn-hover text-white position-relative rounded-5 w-50 light-purple-background d-block mx-auto"
+               onClick={props.onClick}
+          >
                {props.children}
                <img
                     src={book_mark}

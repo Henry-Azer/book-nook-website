@@ -1,6 +1,21 @@
 const en = {
-     Login: {
-          login: "Login",
+     sign_up: {
+          fname: "First Name",
+          lname: "Last name",
+          phone_num: "Phone Number",
+          birth_date: "Birth Date",
+          day: "DD",
+          month: "MM",
+          year: "YYYY",
+          next: "Next",
+          email: "Email",
+          password: "Password",
+          confirm_password: "Confirm password",
+          sign_up: "Sign up",
+          have_acc: "Already have account ?",
+     },
+     sign_in: {
+          sign_in: "Sign in",
           email: "Email",
           password: "Password",
           new_acc: "Create a new account ?",
