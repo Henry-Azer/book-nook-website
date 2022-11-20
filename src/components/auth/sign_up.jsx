@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 
 import { BsArrowLeftCircle, BsArrowRightShort } from "react-icons/bs";
+import { IoIosArrowDown } from "react-icons/io";
 
 import FormCard from "../base/forms/form-card";
 import Circle from "../base/animation/circle";
@@ -77,10 +78,13 @@ const SignUp = () => {
                                    />
                               ))}
 
-                              <div class="select w-75 position-relative d-inline-block">
+                              <div className="select w-75 position-relative d-inline-block">
                                    <select
                                         defaultValue=""
-                                        className="d-inline-block w-100 px-3 py-2 border-1 light-purple-border rounded-5 bg-transparent text-white"
+                                        className={`d-inline-block w-100 px-3 py-2 border-1 light-purple-border rounded-5 bg-transparent text-white ${
+                                             i18n.resolvedLanguage === "ar" &&
+                                             "text-end"
+                                        }`}
                                    >
                                         <option value="" disabled>
                                              {t("sign_up:gender")}
@@ -92,11 +96,26 @@ const SignUp = () => {
                                              {t("sign_up:female")}
                                         </option>
                                    </select>
-                                   <div class="select_arrow"></div>
+                                   <IoIosArrowDown
+                                        className={`select_arrow d-inline-block light-purple-text position-absolute fs-4 ${
+                                             i18n.resolvedLanguage === "ar" &&
+                                             "ar"
+                                        }`}
+                                   />
                               </div>
 
-                              <div className="w-75 d-flex align-items-center">
-                                   <h1 className="fs-6 w-75">
+                              <div
+                                   className={`w-75 d-flex align-items-center ${
+                                        i18n.resolvedLanguage === "ar" &&
+                                        "flex-row-reverse"
+                                   }`}
+                              >
+                                   <h1
+                                        className={`fs-6 w-75 ${
+                                             i18n.resolvedLanguage === "ar" &&
+                                             "text-end"
+                                        }`}
+                                   >
                                         {t("sign_up:birth_date")}
                                    </h1>
                                    <div className="d-flex justify-content-center">

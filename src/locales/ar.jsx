@@ -1,5 +1,23 @@
 const ar = {
-	Login: {
+	sign_up: {
+		fname: "الأسم الأول",
+		lname: "الأسم الأخير",
+		phone_num: "رقم الهاتف",
+		gender: "... اختر جنسك",
+		male: "ذكر",
+		female: "أنثي",
+		birth_date: "تاريح الميلاد",
+		day: "يوم",
+		month: "شهر",
+		year: "سنة",
+		next: "التالي",
+		email: "البريد الالكتروني",
+		password: "كلمة المرور",
+		confirm_password: "تأكيد كلمة المرور",
+		sign_up: "اشتراك",
+		have_acc: "لديك حساب بالفعل ؟",
+	 },
+	sign_in: {
 		login: "تسجيل الدخول",
 		email: "البريد الالكتروني",
 		password: "كلمة المرور",
