@@ -151,11 +151,6 @@ button:active {
 .select select::-ms-expand {
      display: none !important;
 }
-.select select:hover,
-.select select:focus {
-     color: var(--dark-purple) !important;
-     background: white !important;
-}
 .select select:disabled {
      opacity: 0.5 !important;
      pointer-events: none !important;
@@ -167,13 +162,10 @@ button:active {
 .select_arrow.ar {
      left: 20px;
 }
-.select select:hover ~ .select_arrow,
+/* .select select:hover ~ .select_arrow,
 .select select:focus ~ .select_arrow {
      border-color: var(--dark-purple);
-}
-.select select:disabled ~ .select_arrow {
-     border-top-color: white;
-}
+} */
 /* ----- GLOBAL PROPS END ----- */
 /* -------------------------------------------------------- */
 

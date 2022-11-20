@@ -81,7 +81,7 @@ const SignUp = () => {
                               <div className="select w-75 position-relative d-inline-block">
                                    <select
                                         defaultValue=""
-                                        className={`d-inline-block w-100 px-3 py-2 border-1 light-purple-border rounded-5 bg-transparent text-white ${
+                                        className={`d-inline-block w-100 px-3 py-2 border-1 light-purple-border rounded-5 dark-purple-background text-white ${
                                              i18n.resolvedLanguage === "ar" &&
                                              "text-end"
                                         }`}
