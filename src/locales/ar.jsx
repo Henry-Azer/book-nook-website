@@ -1,30 +1,29 @@
 const ar = {
 	// sing_upppppppppppppppp
 	// sign-up
-	sign_up: {
-		// fnaaaaaaaaaaaaaame
-		fname: "الأسم الأول",
-		lname: "الأسم الأخير",
-		phone_num: "رقم الهاتف",
+	signUp: {
+		firstName: "الأسم الأول",
+		lastName: "الأسم الأخير",
+		phoneNumber: "رقم الهاتف",
 		gender: "... اختر جنسك",
 		male: "ذكر",
 		female: "أنثي",
-		birth_date: "تاريح الميلاد",
+		birthDate: "تاريح الميلاد",
 		day: "يوم",
 		month: "شهر",
 		year: "سنة",
 		next: "التالي",
 		email: "البريد الالكتروني",
 		password: "كلمة المرور",
-		confirm_password: "تأكيد كلمة المرور",
-		sign_up: "اشتراك",
-		have_acc: "لديك حساب بالفعل ؟",
+		confirmPassword: "تأكيد كلمة المرور",
+		signUp: "اشتراك",
+		haveAcc: "لديك حساب بالفعل ؟",
 	 },
-	sign_in: {
-		sign_in: "تسجيل الدخول",
+	signIn: {
+		signIn: "تسجيل الدخول",
 		email: "البريد الالكتروني",
 		password: "كلمة المرور",
-		new_acc: "انشاء حساب جديد ؟",
+		newAcc: "انشاء حساب جديد ؟",
 	 },
 	form: {
 		is_required: "مطلوب",

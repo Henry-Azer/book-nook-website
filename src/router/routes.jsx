@@ -1,10 +1,10 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 
-import Home from "../components/home";
-import SignIn from "../components/auth/sign_in";
-import SignUp from "../components/auth/sign_up";
-import Users2 from "../components/user/users-hooks";
+import Home from "../views/Home";
+import SignIn from "../views/auth/SignIn";
+import SignUp from "../views/auth/SignUp";
+import Users2 from "../views/user/users-hooks";
 
 export default function routes() {
      return (

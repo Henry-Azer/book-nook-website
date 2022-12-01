@@ -1,5 +1,5 @@
 import React from "react";
-import book_mark from "../../../assets/images/Asset-1.png";
+import book_mark from "../../assets/images/Asset-1.png";
 
 const BookmarkButton = (props) => {
      return (

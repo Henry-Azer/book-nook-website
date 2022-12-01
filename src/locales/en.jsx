@@ -1,27 +1,27 @@
 const en = {
-     sign_up: {
-          fname: "First Name",
-          lname: "Last name",
-          phone_num: "Phone Number",
+     signUp: {
+          firstName: "First Name",
+          lastName: "Last name",
+          phoneNumber: "Phone Number",
           gender: "Select your gender ...",
           male: "Male",
           female: "Female",
-          birth_date: "Birth Date",
+          birthDate: "Birth Date",
           day: "DD",
           month: "MM",
           year: "YYYY",
           next: "Next",
           email: "Email",
           password: "Password",
-          confirm_password: "Confirm password",
-          sign_up: "Sign up",
-          have_acc: "Already have account ?",
+          confirmPassword: "Confirm password",
+          signUp: "Sign up",
+          haveAcc: "Already have account ?",
      },
-     sign_in: {
-          sign_in: "Sign in",
+     signIn: {
+          signIn: "Sign in",
           email: "Email",
           password: "Password",
-          new_acc: "Create a new account ?",
+          newAcc: "Create a new account ?",
      },
      form: {
           is_required: "is required",

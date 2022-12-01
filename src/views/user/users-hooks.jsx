@@ -4,9 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { userList } from "../../store/actions/users/users-actions";
 
+// 1. Dispatch action from function userList()
+// 2. send request reducer
+// 3. Reducer send payload to State
+// 4. useSelector to access Store (State)
+
 const Users = () => {
     const dispatch = useDispatch();
-    const users = useSelector((state) => state.users.users);
+    const users = useSelector((state) => state.users.usersList);
+
 
     useEffect(() => {
         dispatch(userList());

@@ -1,16 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import logo_white from "../../../assets/images/logo-white.png";
+import logo_white from "../../assets/images/logo-white.png";
 
 
 const FormCard = (props) => {
      return (
-          <div className="form-card h-100 w-75 mx-auto d-flex justify-content-center align-items-center">
+          <form className="form-card h-100 w-75 mx-auto d-flex justify-content-center align-items-center">
                <div className="d-flex align-items-center justify-content-center form-card w-50 border border-1 rounded-3 light-purple-border text-white flex-column p-3 position-relative">
                     {/* on refresh the logo show up late after all form */}
-                    {/* home route will be "/" not "/home" */}
-                    <Link to="/home">
+                    <Link to="/">
                          <img
                               src={logo_white}
                               alt="logo"
@@ -23,7 +22,7 @@ const FormCard = (props) => {
                          {props.children}
                     </div>
                </div>
-          </div>
+          </form>
      );
 };
 export default FormCard;
