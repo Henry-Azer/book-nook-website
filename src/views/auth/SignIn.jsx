@@ -17,65 +17,66 @@ import BookmarkButton from "../../components/buttons/bookmark-button";
 // it's just a components not a major route for me
 // example: bookmark-button - translate-button
 const SignIn = () => {
-     const { t, i18n } = useTranslation();
-     const dispatch = useDispatch();
+    const { t, i18n } = useTranslation();
+    const dispatch = useDispatch();
 
-     const user = {
-          email: "henryazer@outlook.com",
-          password: "12345678",
-     };
+    const user = {
+        email: "bavly@gmail.com",
+        password: "123456789",
+        keepLogged: false,
+    };
 
-     return (
-          <div className="sign-in-route vh-100 w-100 position-relative overflow-hidden">
-               <Circle
-                    size="10"
-                    backgroundColor="beige"
-                    duration="25"
-                    top="15"
-                    left="-150"
-               />
-               <Circle
-                    size="15"
-                    backgroundColor="light-purple"
-                    duration="40"
-                    bottom="-100"
-                    left="-120"
-               />
-               <Circle
-                    size="12"
-                    backgroundColor="light-purple"
-                    duration="20"
-                    top="200"
-                    right="-200"
-               />
-               <FormCard title={t("signIn:signIn")}>
-                    <input
-                         type="text"
-                         className={`w-75 rounded-5 form-control light-purple-border text-white ${
-                              i18n.resolvedLanguage === "ar" && "text-end"
-                         }`}
-                         placeholder={t("signIn:email")}
-                    />
-                    <input
-                         type="password"
-                         className={`w-75 rounded-5 form-control light-purple-border text-white ${
-                              i18n.resolvedLanguage === "ar" && "text-end"
-                         }`}
-                         placeholder={t("signIn:password")}
-                    />
-                    <BookmarkButton
-                         onClick={(e) => {
-                              e.preventDefault();
-                              dispatch(authenticateUser(user));
-                         }}
-                    >
-                         {t("signIn:signIn")}
-                    </BookmarkButton>
-                    <Link to="/sign-up" className="link-hover text-white">
-                         {t("signIn:newAcc")}
-                    </Link>
-               </FormCard>
-          </div>
-     );
+    return (
+        <div className="sign-in-route vh-100 w-100 position-relative overflow-hidden">
+            <Circle
+                size="10"
+                backgroundColor="beige"
+                duration="25"
+                top="15"
+                left="-150"
+            />
+            <Circle
+                size="15"
+                backgroundColor="light-purple"
+                duration="40"
+                bottom="-100"
+                left="-120"
+            />
+            <Circle
+                size="12"
+                backgroundColor="light-purple"
+                duration="20"
+                top="200"
+                right="-200"
+            />
+            <FormCard title={t("signIn:signIn")}>
+                <input
+                    type="text"
+                    className={`w-75 rounded-5 form-control light-purple-border text-white ${
+                        i18n.resolvedLanguage === "ar" && "text-end"
+                    }`}
+                    placeholder={t("signIn:email")}
+                />
+                <input
+                    type="password"
+                    className={`w-75 rounded-5 form-control light-purple-border text-white ${
+                        i18n.resolvedLanguage === "ar" && "text-end"
+                    }`}
+                    placeholder={t("signIn:password")}
+                />
+                <BookmarkButton
+                    onClick={(e) => {
+                        e.preventDefault();
+                        dispatch(authenticateUser(user));
+                    }}
+                >
+                    {t("signIn:signIn")}
+                </BookmarkButton>
+                <Link to="/sign-up" className="link-hover text-white">
+                    {t("signIn:newAcc")}
+                </Link>
+            </FormCard>
+        </div>
+    );
 };
 export default SignIn;
