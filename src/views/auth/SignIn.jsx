@@ -4,79 +4,114 @@ import { useTranslation } from "react-i18next";
 
 import { useDispatch } from "react-redux";
 import { authenticateUser } from "../../store/actions/auth/auth-actions";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
+import Cookies from "universal-cookie";
 
 import FormCard from "../../components/forms/form-card";
 import Circle from "../../components/animation/circle";
 import BookmarkButton from "../../components/buttons/bookmark-button";
-// import axios from "axios";
 
-// file name of Route Component must be like it's class name
-// example: Home - SignIn - SignUp
-// to know it represents a route for me
-// the other used components its used for the route or major components
-// it's just a components not a major route for me
-// example: bookmark-button - translate-button
 const SignIn = () => {
-    const { t, i18n } = useTranslation();
-    const dispatch = useDispatch();
+     const cookies = new Cookies();
+     // useSelector((state) => console.log(state));
 
-    const user = {
-        email: "bavly@gmail.com",
-        password: "123456789",
-        keepLogged: false,
-    };
+     const { t, i18n } = useTranslation();
+     const dispatch = useDispatch();
 
-    return (
-        <div className="sign-in-route vh-100 w-100 position-relative overflow-hidden">
-            <Circle
-                size="10"
-                backgroundColor="beige"
-                duration="25"
-                top="15"
-                left="-150"
-            />
-            <Circle
-                size="15"
-                backgroundColor="light-purple"
-                duration="40"
-                bottom="-100"
-                left="-120"
-            />
-            <Circle
-                size="12"
-                backgroundColor="light-purple"
-                duration="20"
-                top="200"
-                right="-200"
-            />
-            <FormCard title={t("signIn:signIn")}>
-                <input
-                    type="text"
-                    className={`w-75 rounded-5 form-control light-purple-border text-white ${
-                        i18n.resolvedLanguage === "ar" && "text-end"
-                    }`}
-                    placeholder={t("signIn:email")}
-                />
-                <input
-                    type="password"
-                    className={`w-75 rounded-5 form-control light-purple-border text-white ${
-                        i18n.resolvedLanguage === "ar" && "text-end"
-                    }`}
-                    placeholder={t("signIn:password")}
-                />
-                <BookmarkButton
-                    onClick={(e) => {
-                        e.preventDefault();
-                        dispatch(authenticateUser(user));
-                    }}
-                >
-                    {t("signIn:signIn")}
-                </BookmarkButton>
-                <Link to="/sign-up" className="link-hover text-white">
-                    {t("signIn:newAcc")}
-                </Link>
-            </FormCard>
-        </div>
-    );
+     const formik = useFormik({
+          initialValues: {
+               email: "",
+               password: "",
+               keepLogged: false,
+          },
+          validationSchema: Yup.object({
+               email: Yup.string()
+                    .email("Invalid email address")
+                    .required("Required"),
+               password: Yup.string().required("Required"),
+          }),
+          onSubmit: (values, e) => {
+               e.preventDefault();
+               dispatch(authenticateUser(values));
+          },
+     });
+
+     return (
+          <div className="sign-in-route vh-100 w-100 position-relative overflow-hidden">
+               <Circle
+                    size="10"
+                    backgroundColor="beige"
+                    duration="25"
+                    top="15"
+                    left="-150"
+               />
+               <Circle
+                    size="15"
+                    backgroundColor="light-purple"
+                    duration="40"
+                    bottom="-100"
+                    left="-120"
+               />
+               <Circle
+                    size="12"
+                    backgroundColor="light-purple"
+                    duration="20"
+                    top="200"
+                    right="-200"
+               />
+               <FormCard
+                    onSubmit={(e) => formik.onSubmit}
+                    title={t("signIn:signIn")}
+               >
+                    <div className="w-100 d-flex flex-column align-items-center ">
+                         <input
+                              type="text"
+                              autoComplete="username"
+                              name="email"
+                              className={`w-75 rounded-5 form-control light-purple-border text-white ${
+                                   i18n.resolvedLanguage === "ar" && "text-end"
+                              }`}
+                              onBlur={formik.handleBlur}
+                              placeholder={t("signIn:email")}
+                              value={formik.values.email}
+                              onChange={formik.handleChange}
+                         />
+                         {formik.touched.email && formik.errors.email && (
+                              <p className="beige-text mt-2">
+                                   {formik.errors.email}
+                              </p>
+                         )}
+                    </div>
+                    <div className="w-100 d-flex flex-column align-items-center ">
+                         <input
+                              ng-hide="true"
+                              type="password"
+                              autoComplete="current-password"
+                              name="password"
+                              className={`w-75 rounded-5 form-control light-purple-border text-white ${
+                                   i18n.resolvedLanguage === "ar" && "text-end"
+                              }`}
+                              onBlur={formik.handleBlur}
+                              placeholder={t("signIn:password")}
+                              value={formik.values.password}
+                              onChange={formik.handleChange}
+                         />
+                         {formik.touched.password && formik.errors.password && (
+                              <p className="beige-text mt-2">
+                                   {formik.errors.password}
+                              </p>
+                         )}
+                    </div>
+                    <BookmarkButton type="submit">
+                         {t("signIn:signIn")}
+                    </BookmarkButton>
+                    <Link to="/sign-up" className="link-hover text-white">
+                         {t("signIn:newAcc")}
+                    </Link>
+               </FormCard>
+          </div>
+     );
 };
 export default SignIn;

@@ -14,21 +14,22 @@ import "./locales/i18n";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/styles.css";
+import "../src/axios-interceptors/axios-interceptors";
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 ReactDOM.render(
-    <Provider
-        store={createStoreWithMiddleware(
-            reducers,
-            window.__REDUX_DEVTOOLS_EXTENSION__ &&
-                window.__REDUX_DEVTOOLS_EXTENSION__()
-        )}
-    >
-        <BrowserRouter>
-            <TranslateButton />
-            <Routes />
-        </BrowserRouter>
-    </Provider>,
-    document.getElementById("root")
+     <Provider
+          store={createStoreWithMiddleware(
+               reducers,
+               window.__REDUX_DEVTOOLS_EXTENSION__ &&
+                    window.__REDUX_DEVTOOLS_EXTENSION__()
+          )}
+     >
+          <BrowserRouter>
+               <TranslateButton />
+               <Routes />
+          </BrowserRouter>
+     </Provider>,
+     document.getElementById("root")
 );

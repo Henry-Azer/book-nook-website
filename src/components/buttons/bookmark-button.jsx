@@ -6,6 +6,7 @@ const BookmarkButton = (props) => {
           <button
                className="btn btn-hover text-white position-relative rounded-5 w-50 light-purple-background d-block mx-auto"
                onClick={props.onClick}
+               type={props.type}
           >
                {props.children}
                <img

@@ -46,6 +46,9 @@ body {
 .beige-background {
      background-color: var(--beige);
 }
+.beige-text {
+     color: var(--beige) !important;
+}
 .light-purple-background {
      background-color: var(--light-purple);
 }
