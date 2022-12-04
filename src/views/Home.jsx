@@ -1,10 +1,24 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-const Home = () => {
-     useSelector((state) => console.log(state));  
+import Circle from "../components/animation/circle";
 
-     return <div></div>;
+const Home = () => {
+     useSelector((state) => console.log(state));
+
+     return (
+          <div>
+               <Circle
+                    size="20"
+                    backgroundColor="light-purple"
+                    duration="30"
+                    top="150"
+                    right="200"
+               >
+                    Book Recommendation
+               </Circle>
+          </div>
+     );
 };
 
 export default Home;

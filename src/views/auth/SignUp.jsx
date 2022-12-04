@@ -242,10 +242,10 @@ const SignUp = () => {
                                         <option value="" disabled>
                                              {t("signUp:gender")}
                                         </option>
-                                        <option value="male">
+                                        <option value="MALE">
                                              {t("signUp:male")}
                                         </option>
-                                        <option value="female">
+                                        <option value="FEMALE">
                                              {t("signUp:female")}
                                         </option>
                                    </select>

@@ -1,13 +1,9 @@
 import React from "react";
 
-const Circle = (props)=> {
+const Circle = (props) => {
      return (
           <div
-               className={
-                    "rounded-circle position-absolute circle " +
-                    props.backgroundColor +
-                    "-background"
-               }
+               className="position-absolute d-flex justify-content-center align-items-center circle-container"
                style={{
                     width: `${props.size}em`,
                     height: `${props.size}em`,
@@ -17,7 +13,20 @@ const Circle = (props)=> {
                     right: `${props.right}px`,
                     left: `${props.left}px`,
                }}
-          ></div>
+          >
+               {props.children && (
+                    <p className="text-white text-center circle-text w-75 fs-4">
+                         {props.children}
+                    </p>
+               )}
+               <div
+                    className={
+                         "position-absolute rounded-circle circle d-flex justify-content-center align-items-center w-100 h-100 " +
+                         props.backgroundColor +
+                         "-background"
+                    }
+               />
+          </div>
      );
-}
+};
 export default Circle;

@@ -39,9 +39,14 @@ body {
      -o-user-drag: none;
 }
 
+.circle-container {
+     animation: circles-motion linear infinite normal both;
+}
 .circle {
      filter: blur(30px);
-     animation: circles-motion linear infinite normal both;
+}
+.circle-text {
+     z-index: 1111;
 }
 .beige-background {
      background-color: var(--beige);
@@ -174,7 +179,7 @@ button:active {
 
 /* ---------- MEDIA QUERIES START -------------------- */
 @media only screen and (max-width: 1280px) {
-     .form-card{
+     .form-card {
           width: 100% !important;
           border: none !important;
      }
