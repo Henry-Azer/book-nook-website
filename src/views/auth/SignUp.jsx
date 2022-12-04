@@ -96,7 +96,7 @@ const SignUp = () => {
                          email: values.email,
                          password: values.password,
                          phoneNumber: values.phoneNumber,
-                         birthdate: `${values.year}-${values.month}-${values.day}`,
+                         birthdate: `${values.year}-${values.month}-${values.day}T00:00:00.000Z`,
                          age: calculate_age(
                               `${values.year}-${values.month}-${values.day}`
                          ),
