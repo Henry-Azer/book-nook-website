@@ -6,9 +6,9 @@ const cookies = new Cookies();
 
 axios.interceptors.request.use(
      function (config) {
-          // const token = cookies.get("at_bnrs");
-          // config.headers.Authorization = `Bearer ${token}`;
-
+          const token = cookies.get("bn_aut");
+          if (token && token !== "undefined")
+               config.headers.Authorization = `Bearer ${token}`;
           return config;
      },
      function (error) {

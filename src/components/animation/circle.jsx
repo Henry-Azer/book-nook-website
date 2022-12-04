@@ -9,8 +9,8 @@ const Circle = (props)=> {
                     "-background"
                }
                style={{
-                    width: `${props.size}px`,
-                    height: `${props.size}px`,
+                    width: `${props.size}em`,
+                    height: `${props.size}em`,
                     animationDuration: `${props.duration}s`,
                     top: `${props.top}px`,
                     bottom: `${props.bottom}px`,

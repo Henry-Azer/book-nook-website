@@ -1,9 +1,29 @@
 const en = {
-     Login: {
-          login: "Login",
+     signUp: {
+          firstName: "First Name",
+          lastName: "Last name",
+          phoneNumber: "Phone Number",
+          gender: "Select your gender ...",
+          male: "Male",
+          female: "Female",
+          birthDate: "Birth Date",
+          day: "DD",
+          month: "MM",
+          year: "YYYY",
+          next: "Next",
           email: "Email",
           password: "Password",
-          new_acc: "Create a new account ?",
+          confirmPassword: "Confirm password",
+          signUp: "Sign up",
+          haveAcc: "Already have account ?",
+     },
+     signIn: {
+          signIn: "Sign in",
+          email: "Email",
+          password: "Password",
+          newAcc: "Create a new account ?",
+          required: "Required",
+          invalidEmail: "Invalid email address",
      },
      form: {
           is_required: "is required",
