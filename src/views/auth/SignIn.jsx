@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { useDispatch } from "react-redux";
@@ -14,12 +14,12 @@ import Circle from "../../components/animation/circle";
 import BookmarkButton from "../../components/buttons/bookmark-button";
 
 const SignIn = () => {
-     const cookies = new Cookies();
-     // useSelector((state) => console.log(state));
 
+     const cookies = new Cookies();
      const { t, i18n } = useTranslation();
      const dispatch = useDispatch();
-
+     const history = useHistory();
+     
      const formik = useFormik({
           initialValues: {
                email: "",
@@ -28,15 +28,26 @@ const SignIn = () => {
           },
           validationSchema: Yup.object({
                email: Yup.string()
-                    .email("Invalid email address")
-                    .required("Required"),
-               password: Yup.string().required("Required"),
+               .email(t("signIn:invalidEmail"))
+               .required(t("signIn:required")),
+               password: Yup.string().required(t("signIn:required")),
           }),
-          onSubmit: (values, e) => {
-               e.preventDefault();
+          onSubmit: (values) => {
                dispatch(authenticateUser(values));
           },
      });
+     
+     useEffect(() => {
+          document.title = "Sign In | BookNook Library";
+          
+          if (isUserAuthenticatedCookie()) {
+               history.push("/");
+          }
+     });
+     
+     const isUserAuthenticatedCookie = () => {
+          return cookies.get("bn_aut");
+     };
 
      return (
           <div className="sign-in-route vh-100 w-100 position-relative overflow-hidden">
@@ -62,7 +73,7 @@ const SignIn = () => {
                     right="-200"
                />
                <FormCard
-                    onSubmit={(e) => formik.onSubmit}
+                    onSubmit={formik.handleSubmit}
                     title={t("signIn:signIn")}
                >
                     <div className="w-100 d-flex flex-column align-items-center ">

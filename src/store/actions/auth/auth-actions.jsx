@@ -16,8 +16,6 @@ const URL = APIs_URL.STAGING;
 
 export const authenticateUser = (user) => (dispatch) => {
 
-     const token = cookies.get("bn_aut");
-
      dispatch({ type: LOGIN_REQUEST });
 
      axios.post(`${URL}/auth/log-in`, {
@@ -26,22 +24,16 @@ export const authenticateUser = (user) => (dispatch) => {
      })
           .then(function (response) {
                console.log(response);
-               // const accessedUser = null;
+               const accessedUser = null;
                cookies.set("bn_aut", response.data.body.accessToken);
                if (response.data.success) {
-                    axios.get(`${URL}/auth/current`).then((response) =>
-                         console.log(response.data)
+                    axios.get(`${URL}/auth/current`).then(
+                         (response) => (console.log(response))
                     );
-
-                    // axios({
-                    //      method: "GET",
-                    //      url: `${URL}/auth/current`,
-                    //      headers: { Authorization: `Bearer ${token}` },
-                    // }).then(response => console.log(response));
 
                     dispatch({
                          type: LOGIN_SUCCEEDED,
-                         payload: "accessedUser",
+                         payload: accessedUser,
                     });
 
                     // if (user.keepLogged) {

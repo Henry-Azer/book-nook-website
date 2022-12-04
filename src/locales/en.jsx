@@ -22,6 +22,8 @@ const en = {
           email: "Email",
           password: "Password",
           newAcc: "Create a new account ?",
+          required: "Required",
+          invalidEmail: "Invalid email address",
      },
      form: {
           is_required: "is required",
