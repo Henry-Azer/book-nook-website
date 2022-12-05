@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-     booksList,
+     booksCategoriesList,
      clearBooksDetails,
+     findAllPaginatedFiltered,
 } from "../store/actions/books/books-action";
 
 const BooksList = () => {
@@ -15,7 +16,7 @@ const BooksList = () => {
 
      useEffect(() => {
           if (!showsDispatched) {
-               dispatch(booksList());
+               dispatch(booksCategoriesList());
                setShowsDispatched(true);
           }
 
@@ -24,13 +25,16 @@ const BooksList = () => {
           };
      }, [dispatch, showsDispatched]);
 
-     const booksCategories = useSelector((state) => state.books.booksList);
+     const booksCategories = useSelector((state) => state.books.booksCategories);
 
-     console.log(booksCategories);
+     const filter = {pageNumber:5,pageSize:19}
+     dispatch( findAllPaginatedFiltered(filter))
+     
+     // console.log(booksCategories);
 
      return (
           <div className="d-flex justify-content-center flex-column w-100 vh-100">
-               {booksCategories.map((bookCategory) => (
+               {booksCategories && booksCategories.map((bookCategory) => (
                     <p className="text-white text-center">
                          {bookCategory.name}
                     </p>

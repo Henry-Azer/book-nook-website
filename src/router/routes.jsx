@@ -5,6 +5,7 @@ import Home from "../views/Home";
 import SignIn from "../views/auth/SignIn";
 import SignUp from "../views/auth/SignUp";
 import BooksList from "../views/BooksList";
+import BookDetails from "../views/BookProfile";
 
 export default function routes() {
      return (
@@ -12,6 +13,7 @@ export default function routes() {
                <Route exact path="/" component={Home} />
                <Route exact path="/home" redirect ><Redirect to='/' /></Route>
                <Route exact path="/books-list" component={BooksList} />
+               <Route exact path="/book-profile" component={BookDetails} />
                <Route path="/sign-up" component={SignUp} />
                <Route path="/sign-in" component={SignIn} /> 
           </Switch>

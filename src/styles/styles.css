@@ -187,6 +187,16 @@ button:active {
      rotate: -90deg;
      right: -35px !important;
 }
+
+.book-profile-route .book-image-frame{
+     width: 250px;
+     height: 450px;
+}
+.book-profile-route .blur-book-image{
+     z-index: -2;
+     filter: blur(300px);
+     opacity: 0.8;
+}
 /* ---------- MEDIA QUERIES START -------------------- */
 @media only screen and (max-width: 1280px) {
      .form-card {
