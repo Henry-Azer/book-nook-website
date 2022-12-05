@@ -1,4 +1,6 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -7,8 +9,28 @@ import Circle from "../components/animation/circle";
 const Home = () => {
      useSelector((state) => console.log(state));
 
+     const [timeNow, setTimeNow] = useState("");
+
+     useEffect(() => {
+          document.title = "Home | BookNook Library";
+
+          setInterval(() => {
+               setTimeNow(
+                    `${
+                         new Date().getHours() > 12
+                              ? new Date().getHours() % 12
+                              : new Date().getHours()
+                    } : ${new Date().getMinutes()} : ${new Date().getSeconds()} ${
+                         new Date().getHours() > 12 ? "PM" : "AM"
+                    }`
+               );
+          }, 1000);
+
+          console.log(timeNow);
+     });
+
      return (
-          <div>
+          <div className="home-route position-relative w-100 vh-100">
                <Circle
                     size="7"
                     backgroundColor="beige"
@@ -16,7 +38,7 @@ const Home = () => {
                     top="150"
                     right="400"
                />
-               <Link>
+               <Link to="/">
                     <Circle
                          size="20"
                          backgroundColor="light-purple"
@@ -77,7 +99,7 @@ const Home = () => {
                          Sign in
                     </Circle>
                </Link>
-               <Link>
+               <Link to="/">
                     <Circle
                          size="10"
                          backgroundColor="light-purple"
@@ -89,6 +111,10 @@ const Home = () => {
                          Why us ?
                     </Circle>
                </Link>
+
+               <div className="time-now position-absolute bottom-50 end-0">
+                    <p className="text-white fs-4 m-0">{timeNow}</p>
+               </div>
           </div>
      );
 };

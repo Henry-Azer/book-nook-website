@@ -15,7 +15,6 @@ const cookies = new Cookies();
 const URL = APIs_URL.STAGING;
 
 export const authenticateUser = (user) => (dispatch) => {
-
      dispatch({ type: LOGIN_REQUEST });
 
      axios.post(`${URL}/auth/log-in`, {
@@ -27,8 +26,8 @@ export const authenticateUser = (user) => (dispatch) => {
                const accessedUser = null;
                cookies.set("bn_aut", response.data.body.accessToken);
                if (response.data.success) {
-                    axios.get(`${URL}/auth/current`).then(
-                         (response) => (console.log(response))
+                    axios.get(`${URL}/auth/current`).then((response) =>
+                         console.log(response)
                     );
 
                     dispatch({

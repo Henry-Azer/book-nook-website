@@ -183,7 +183,10 @@ button:active {
 } */
 /* ----- GLOBAL PROPS END ----- */
 /* -------------------------------------------------------- */
-
+.time-now {
+     rotate: -90deg;
+     right: -35px !important;
+}
 /* ---------- MEDIA QUERIES START -------------------- */
 @media only screen and (max-width: 1280px) {
      .form-card {
