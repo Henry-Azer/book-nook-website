@@ -3,7 +3,9 @@ import React from "react";
 const Circle = (props) => {
      return (
           <div
-               className="position-absolute d-flex justify-content-center align-items-center circle-container"
+               className={`position-absolute d-flex justify-content-center align-items-center circle-container ${
+                    props.hover && "circle-hover"
+               }`}
                style={{
                     width: `${props.size}em`,
                     height: `${props.size}em`,

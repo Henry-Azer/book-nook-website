@@ -334,7 +334,7 @@ const SignUp = () => {
                               </BookmarkButton>
 
                               <Link
-                                   to="/sign-up"
+                                   to="/sign-in"
                                    className="link-hover text-white"
                               >
                                    {t("signUp:haveAcc")}
