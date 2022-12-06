@@ -177,6 +177,15 @@ button:active {
 .select-arrow.ar {
      left: 20px;
 }
+.cursor-pointer {
+     cursor: pointer;
+}
+.overflow-x-hidden{
+     overflow-x: hidden;
+}
+.text-justify{
+     text-align: justify;
+}
 /* .select select:hover ~ .select_arrow,
 .select select:focus ~ .select_arrow {
      border-color: var(--dark-purple);
@@ -188,15 +197,24 @@ button:active {
      right: -35px !important;
 }
 
-.book-profile-route .book-image-frame{
+.book-profile-route .book-image-frame {
      width: 250px;
      height: 450px;
 }
-.book-profile-route .blur-book-image{
+.book-profile-route .blur-book-image {
      z-index: -2;
      filter: blur(300px);
      opacity: 0.8;
 }
+.author-profile .author-img-frame{
+     width: 200px;
+     height: 200px;
+}
+.author-info .book-mark{
+     bottom: -5.3em;
+     right:0
+}
+
 /* ---------- MEDIA QUERIES START -------------------- */
 @media only screen and (max-width: 1280px) {
      .form-card {

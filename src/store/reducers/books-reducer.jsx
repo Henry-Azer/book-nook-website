@@ -3,9 +3,10 @@ import {
      BOOKS_REQUEST,
      BOOKS_LIST,
      BOOK_BY_ID,
+     CLEAR_BOOKS_DETAILS,
 } from "../types";
 
-export default function books(state = {}, action) {
+export default function books_reducer(state = {}, action) {
      switch (action.type) {
           // LOGIN
           case BOOKS_REQUEST:
@@ -27,6 +28,14 @@ export default function books(state = {}, action) {
                return {
                     ...state,
                     gettingBooks: false,
+                    booksCategories: action.payload,
+               };
+
+          case CLEAR_BOOKS_DETAILS:
+               return {
+                    gettingBooks: action.payload,
+                    booksList: action.payload,
+                    currentBook: action.payload,
                     booksCategories: action.payload,
                };
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import BookmarkButton from "../components/buttons/bookmark-button";
 import {
      clearBooksDetails,
@@ -15,7 +16,7 @@ const BookDetails = () => {
 
      useEffect(() => {
           if (!showsDispatched) {
-               dispatch(getBookById(10));
+               dispatch(getBookById(12));
                setShowsDispatched(true);
           }
 
@@ -24,10 +25,12 @@ const BookDetails = () => {
           };
      }, [dispatch, showsDispatched]);
 
+     const history = useHistory();
+
      return (
           <div className="book-profile-route w-100 vh-100">
                {currentBook && (
-                    <div className="row row-cols-2 w-100 h-100 text-white overflow-hidden">
+                    <div className="row row-cols-lg-2 row-cols-md-1 row-cols-sm-1 w-100 h-100 text-white overflow-hidden">
                          <div className="col h-100 d-flex justify-content-center align-items-center flex-column position-relative ">
                               <div className="d-flex justify-content-center align-items-center flex-column">
                                    <div className="book-image-frame">
@@ -44,7 +47,7 @@ const BookDetails = () => {
                                         Category : {currentBook.category.name}
                                    </p>
                               </div>
-                              <div className="blur-book-image w-100 h-100 position-absolute bottom-50 start-0 circle">
+                              <div className="blur-book-image w-100 h-100 position-absolute bottom-50 start-0">
                                    <img
                                         className="w-100"
                                         src={currentBook.imageUrl}
@@ -52,9 +55,9 @@ const BookDetails = () => {
                               </div>
                          </div>
                          <div className="col d-flex justify-content-center align-items-center flex-column">
-                              <div className="row row-cols-2 w-100 h-25 g-5 mt-4 px-4">
+                              <div className="row row-cols-lg-2 row-cols-md-1 row-cols-sm-1 w-100 h-25 g-5 mt-4 px-4">
                                    <div className="col d-flex justify-content-center align-items-center">
-                                        <div className="light-purple-background rounded-5 d-flex justify-content-center align-items-center w-100 h-100">
+                                        <div onClick={()=> history.push("/author-profile",{authorId:currentBook.author.id}) } className="light-purple-background rounded-5 d-flex justify-content-center align-items-center w-100 h-100 cursor-pointer">
                                              <h1 className="fs-5 m-3">
                                                   {currentBook.author.name}
                                              </h1>
