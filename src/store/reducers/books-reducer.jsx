@@ -3,6 +3,7 @@ import {
      BOOKS_REQUEST,
      BOOKS_LIST,
      BOOK_BY_ID,
+     BOOKS_BY_AUTHOR,
      CLEAR_BOOKS_DETAILS,
 } from "../types";
 
@@ -29,6 +30,12 @@ export default function books_reducer(state = {}, action) {
                     ...state,
                     gettingBooks: false,
                     booksCategories: action.payload,
+               };
+
+          case BOOKS_BY_AUTHOR:
+               return {
+                    gettingBooks: false,
+                    authorsBooks: action.payload,
                };
 
           case CLEAR_BOOKS_DETAILS:

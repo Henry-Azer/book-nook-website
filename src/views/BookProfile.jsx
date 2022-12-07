@@ -7,16 +7,19 @@ import {
      getBookById,
 } from "../store/actions/books/books-action";
 
-const BookDetails = () => {
+const BookDetails = (props) => {
      const [showsDispatched, setShowsDispatched] = useState(false);
 
      const dispatch = useDispatch();
      const currentBook = useSelector((state) => state.books.currentBook);
      console.log(currentBook);
 
+
+     const bookId = props.location.state.bookId;
+
      useEffect(() => {
           if (!showsDispatched) {
-               dispatch(getBookById(12));
+               dispatch(getBookById(bookId));
                setShowsDispatched(true);
           }
 
@@ -57,7 +60,20 @@ const BookDetails = () => {
                          <div className="col d-flex justify-content-center align-items-center flex-column">
                               <div className="row row-cols-lg-2 row-cols-md-1 row-cols-sm-1 w-100 h-25 g-5 mt-4 px-4">
                                    <div className="col d-flex justify-content-center align-items-center">
-                                        <div onClick={()=> history.push("/author-profile",{authorId:currentBook.author.id}) } className="light-purple-background rounded-5 d-flex justify-content-center align-items-center w-100 h-100 cursor-pointer">
+                                        <div
+                                             onClick={() =>
+                                                  history.push(
+                                                       "/author-profile",
+                                                       {
+                                                            authorId:
+                                                                 currentBook
+                                                                      .author
+                                                                      .id,
+                                                       }
+                                                  )
+                                             }
+                                             className="light-purple-background rounded-5 d-flex justify-content-center align-items-center w-100 h-100 cursor-pointer"
+                                        >
                                              <h1 className="fs-5 m-3">
                                                   {currentBook.author.name}
                                              </h1>

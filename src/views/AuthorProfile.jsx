@@ -7,26 +7,36 @@ import {
 
 import Circle from "../components/animation/circle";
 import bookMark from "../assets/images/Asset-1.png";
+import {
+     clearBooksDetails,
+     getAuthorBooksByAuthorId,
+} from "../store/actions/books/books-action";
+import { useHistory } from "react-router-dom";
 
-
-
-export default function AuthorProfile(props) {
-     console.log(props);
+const AuthorProfile = (props) => {
      const [showsDispatched, setShowsDispatched] = useState(false);
 
      const dispatch = useDispatch();
+     const history = useHistory();
+
      const currentAuthor = useSelector((state) => state.authors.currentAuthor);
-     console.log(currentAuthor);
+     const currentAuthorBooks = useSelector(
+          (state) => state.books.authorsBooks
+     );
+
+     console.log(currentAuthorBooks);
 
      const authorId = props.location.state.authorId;
      useEffect(() => {
           if (!showsDispatched) {
                dispatch(getAuthorById(authorId));
+               dispatch(getAuthorBooksByAuthorId(authorId));
                setShowsDispatched(true);
           }
 
           return () => {
                dispatch(clearAuthorsDetails());
+               dispatch(clearBooksDetails());
           };
      }, [dispatch, showsDispatched]);
 
@@ -98,16 +108,72 @@ export default function AuthorProfile(props) {
                                              {currentAuthor.description}
                                         </h1>
                                    </div>
-                                   <img src={bookMark} className="position-absolute book-mark" />
+                                   <img
+                                        src={bookMark}
+                                        className="position-absolute book-mark"
+                                   />
                               </div>
-                              <div className="w-100 mt-5">
-                                   <h1 className="fs-1 text-white w-75 text-justify">
-                                        Author's Books
-                                   </h1>
+                              <div className="w-100 mt-5 d-flex justify-content-center flex-column">
+                                   {currentAuthorBooks && (
+                                        <>
+                                             <h1 className="fs-1 text-white w-75 text-justify">
+                                                  Author's Book
+                                                  {currentAuthorBooks.length >
+                                                       1 && "s"}
+                                             </h1>
+
+                                             <div className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-5 align-items-center align-self-center w-75">
+                                                  {currentAuthorBooks.map(
+                                                       (book) => (
+                                                            <div className="col col-list d-flex justify-content-start align-items-center text-white cursor-pointer">
+                                                                 <div
+                                                                      onClick={() =>
+                                                                           history.push(
+                                                                                "/book-profile",
+                                                                                {
+                                                                                     bookId: book.id,
+                                                                                }
+                                                                           )
+                                                                      }
+                                                                      className="d-flex justify-content-between align-items-center flex-column w-100 h-75 overflow-hidden"
+                                                                 >
+                                                                      <div className="h-75 d-flex justify-content-center align-content-center rounded-5">
+                                                                           <img
+                                                                                src={
+                                                                                     book.imageUrl
+                                                                                }
+                                                                                alt={
+                                                                                     book.name
+                                                                                }
+                                                                                className="h-100 rounded-5"
+                                                                           />
+                                                                      </div>
+
+                                                                      <h1 className="fs-4">
+                                                                           {
+                                                                                book.name
+                                                                           }
+                                                                      </h1>
+                                                                      <h1 className="fs-5">
+                                                                           Price
+                                                                           :{" "}
+                                                                           {
+                                                                                book.price
+                                                                           }{" "}
+                                                                           $
+                                                                      </h1>
+                                                                 </div>
+                                                            </div>
+                                                       )
+                                                  )}
+                                             </div>
+                                        </>
+                                   )}
                               </div>
                          </>
                     )}
                </div>
           </div>
      );
-}
+};
+export default AuthorProfile;

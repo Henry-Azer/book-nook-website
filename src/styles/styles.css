@@ -197,9 +197,13 @@ button:active {
      right: -35px !important;
 }
 
-.book-profile-route .book-image-frame {
+.book-image-frame {
      width: 250px;
      height: 450px;
+}
+
+.col-list{
+     height: 500px;
 }
 .book-profile-route .blur-book-image {
      z-index: -2;
