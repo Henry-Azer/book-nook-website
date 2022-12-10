@@ -8,6 +8,7 @@ import {
 
 import bookMark from "../assets/images/Asset-1.png";
 import BookCard from "../components/cards/BookCard";
+import Circle from "../components/animation/circle";
 
 const BooksList = () => {
      const [showsDispatched, setShowsDispatched] = useState(false);
@@ -51,7 +52,42 @@ const BooksList = () => {
      // console.log(pagesTotalNumber(totalNumberOfPages));
 
      return (
-          <div className="d-flex justify-content-center align-items-center flex-column w-100 min-vh-100">
+          <div className="d-flex justify-content-center align-items-center flex-column w-100 min-vh-100 position-relative overflow-x-hidden">
+               <Circle
+                    size="10"
+                    backgroundColor="beige"
+                    duration="25"
+                    top="15"
+                    left="-150"
+               />
+               <Circle
+                    size="25"
+                    backgroundColor="light-purple"
+                    duration="40"
+                    top="500"
+                    left="-300"
+               />
+               <Circle
+                    size="15"
+                    backgroundColor="beige"
+                    duration="10"
+                    bottom="0"
+                    left="-120"
+               />
+               <Circle
+                    size="16"
+                    backgroundColor="beige"
+                    duration="15"
+                    top="900"
+                    right="-250"
+               />
+               <Circle
+                    size="10"
+                    backgroundColor="light-purple"
+                    duration="20"
+                    top="200"
+                    right="-100"
+               />
                <div className="container d-flex justify-content-center align-items-center flex-column py-5">
                     <input
                          type="text"

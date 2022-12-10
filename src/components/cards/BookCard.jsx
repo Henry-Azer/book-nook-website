@@ -8,7 +8,7 @@ const BookCard = (props) => {
      return (
           <div
                key={props.key}
-               className="col col-list d-flex justify-content-start align-items-center text-white cursor-pointer"
+               className="col col-list d-flex justify-content-start align-items-center text-white"
           >
                <div
                     onClick={() =>
@@ -22,12 +22,16 @@ const BookCard = (props) => {
                          <img
                               src={book.imageUrl}
                               alt={book.name}
-                              className="h-100 rounded-5"
+                              className="h-100 rounded-5  cursor-pointer"
                          />
                     </div>
 
-                    <h1 className="fs-5 text-center mt-2 fw-bold">{book.name}</h1>
-                    <h1 className="fs-6">Price : {book.price} $</h1>
+                    <h1 className="fs-5 text-center mt-2 fw-bold cursor-pointer">
+                         {book.name}
+                    </h1>
+                    <h1 className="fs-6 cursor-pointer">
+                         Price : {book.price} $
+                    </h1>
                </div>
           </div>
      );
