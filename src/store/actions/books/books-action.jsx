@@ -4,8 +4,9 @@ import {
      BOOKS_CATEGORIES,
      BOOKS_REQUEST,
      BOOK_BY_ID,
-     // BOOKS_LIST,
+     BOOKS_LIST,
      BOOKS_BY_AUTHOR,
+     RECOMMENDED_BOOKS,
      CLEAR_BOOKS_DETAILS,
 } from "../../types";
 
@@ -30,43 +31,63 @@ export const getBookById = (bookId) => (dispatch) => {
      });
 };
 
-export const findAllPaginatedFiltered = (filter) => (dispatch) => {
+export const findAllBooks = (filter) => (dispatch) => {
      const booksListFilters = {
           pageNumber: filter.pageNumber,
-          pageSize: filter.pageSize,
-          sortingByList: null,
-          // sortingByList: [
-          //      {
-          //           fieldName: "",
-          //           direction: "",
-          //           isNumber: true,
-          //      },
-          // ],
-          criteria: null,
-          // criteria: {
-          //      name: "",
-          //      categories: [""],
-          //      fromPrice: 0,
-          //      toPrice: 0,
-          //      fromPagesNumber: 0,
-          //      toPagesNumber: 0,
-          //      fromReadingDuration: 0,
-          //      toReadingDuration: 0,
-          // },
-          deletedRecords: true,
+          pageSize: 15,
+          sortingByList: [
+               {
+                    fieldName: "id",
+                    direction: "ASC",
+                    isNumber: true,
+               },
+          ],
+          criteria: {
+               name: filter.name ? filter.name : null,
+               categories: filter.categories ? filter.categories : [],
+               fromPrice: filter.fromPrice ? filter.fromPrice : null,
+               toPrice: filter.toPrice ? filter.toPrice : null,
+               fromPagesNumber: filter.fromPagesNumber
+                    ? filter.fromPagesNumber
+                    : null,
+               toPagesNumber: filter.toPagesNumber
+                    ? filter.toPagesNumber
+                    : null,
+               fromReadingDuration: filter.fromReadingDuration
+                    ? filter.fromReadingDuration
+                    : null,
+               toReadingDuration: filter.toReadingDuration
+                    ? filter.toReadingDuration
+                    : null,
+          },
+          deletedRecords: false,
      };
 
      axios.post(`${URL}/find-all-paginated-filtered`, booksListFilters).then(
-          (res) => console.log(res)
+          (res) => {
+               console.log(res);
+               if (res.data.success) {
+                    dispatch({
+                         type: BOOKS_LIST,
+                         payload: res.data.body,
+                    });
+               }
+          }
      );
-     // ();
-     // dispatch({ type: BOOKS_LIST, payload:});
 };
 
 export const getAuthorBooksByAuthorId = (authorId) => (dispatch) => {
      axios.get(`${URL}/find-all-by-author-id/${authorId}`).then((res) => {
           if (res.data.success)
                dispatch({ type: BOOKS_BY_AUTHOR, payload: res.data.body });
+     });
+};
+
+export const getRecommendedBooks = () => (dispatch) => {
+     axios.get(`${URL}/find-all-recommended`).then((res) => {
+          if (res.data.success) {
+               dispatch({ type: RECOMMENDED_BOOKS, payload: res.data.body})
+          }
      });
 };
 export function clearBooksDetails() {

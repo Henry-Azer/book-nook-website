@@ -1,13 +1,14 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import Circle from "../components/animation/circle";
 
 const Home = () => {
-     useSelector((state) => console.log(state));
+     const state = useSelector((state) => state);
+     useEffect(() => {
+          console.log(state);
+     }, []);
 
      const [timeNow, setTimeNow] = useState("");
 
@@ -26,7 +27,7 @@ const Home = () => {
                );
           }, 1000);
 
-          console.log(timeNow);
+          // console.log(timeNow);
      });
 
      return (

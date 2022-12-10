@@ -4,6 +4,7 @@ import {
      BOOKS_LIST,
      BOOK_BY_ID,
      BOOKS_BY_AUTHOR,
+     RECOMMENDED_BOOKS,
      CLEAR_BOOKS_DETAILS,
 } from "../types";
 
@@ -16,7 +17,8 @@ export default function books_reducer(state = {}, action) {
                return {
                     ...state,
                     gettingBooks: false,
-                    booksList: action.payload,
+                    booksList: action.payload.result,
+                    totalNumberOfPages: action.payload.totalNumberOfPages,
                };
 
           case BOOK_BY_ID:
@@ -34,15 +36,25 @@ export default function books_reducer(state = {}, action) {
 
           case BOOKS_BY_AUTHOR:
                return {
+                    ...state,
                     gettingBooks: false,
                     authorsBooks: action.payload,
                };
 
+          case RECOMMENDED_BOOKS:
+               return {
+                    ...state,
+                    gettingBooks: false,
+                    recommendedBooks: action.payload,
+               };
+
           case CLEAR_BOOKS_DETAILS:
                return {
+                    ...state,
                     gettingBooks: action.payload,
                     booksList: action.payload,
                     currentBook: action.payload,
+                    recommendedBooks: action.payload,
                     booksCategories: action.payload,
                };
 

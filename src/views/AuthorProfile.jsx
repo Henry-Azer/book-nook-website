@@ -11,13 +11,13 @@ import {
      clearBooksDetails,
      getAuthorBooksByAuthorId,
 } from "../store/actions/books/books-action";
-import { useHistory } from "react-router-dom";
+import BookCard from "../components/cards/BookCard";
 
 const AuthorProfile = (props) => {
      const [showsDispatched, setShowsDispatched] = useState(false);
 
      const dispatch = useDispatch();
-     const history = useHistory();
+     
 
      const currentAuthor = useSelector((state) => state.authors.currentAuthor);
      const currentAuthorBooks = useSelector(
@@ -125,45 +125,9 @@ const AuthorProfile = (props) => {
                                              <div className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-5 align-items-center align-self-center w-75">
                                                   {currentAuthorBooks.map(
                                                        (book) => (
-                                                            <div className="col col-list d-flex justify-content-start align-items-center text-white cursor-pointer">
-                                                                 <div
-                                                                      onClick={() =>
-                                                                           history.push(
-                                                                                "/book-profile",
-                                                                                {
-                                                                                     bookId: book.id,
-                                                                                }
-                                                                           )
-                                                                      }
-                                                                      className="d-flex justify-content-between align-items-center flex-column w-100 h-75 overflow-hidden"
-                                                                 >
-                                                                      <div className="h-75 d-flex justify-content-center align-content-center rounded-5">
-                                                                           <img
-                                                                                src={
-                                                                                     book.imageUrl
-                                                                                }
-                                                                                alt={
-                                                                                     book.name
-                                                                                }
-                                                                                className="h-100 rounded-5"
-                                                                           />
-                                                                      </div>
-
-                                                                      <h1 className="fs-4">
-                                                                           {
-                                                                                book.name
-                                                                           }
-                                                                      </h1>
-                                                                      <h1 className="fs-5">
-                                                                           Price
-                                                                           :{" "}
-                                                                           {
-                                                                                book.price
-                                                                           }{" "}
-                                                                           $
-                                                                      </h1>
-                                                                 </div>
-                                                            </div>
+                                                            <BookCard
+                                                                 book={book}
+                                                            />
                                                        )
                                                   )}
                                              </div>

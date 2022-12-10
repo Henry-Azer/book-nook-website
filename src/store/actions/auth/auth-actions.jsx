@@ -23,16 +23,16 @@ export const authenticateUser = (user) => (dispatch) => {
      })
           .then(function (response) {
                console.log(response);
-               const accessedUser = null;
-               cookies.set("bn_aut", response.data.body.accessToken);
                if (response.data.success) {
-                    axios.get(`${URL}/auth/current`).then((response) =>
-                         console.log(response)
-                    );
-
-                    dispatch({
-                         type: LOGIN_SUCCEEDED,
-                         payload: accessedUser,
+                    cookies.set("bn_aut", response.data.body.accessToken);
+                    axios.get(`${URL}/auth/current`).then((res) => {
+                         if (res.data.success) {
+                              console.log(res);
+                              dispatch({
+                                   type: LOGIN_SUCCEEDED,
+                                   payload: res.data.body,
+                              });
+                         }
                     });
 
                     // if (user.keepLogged) {
