@@ -87,6 +87,7 @@ body {
 
 input {
      background: none !important;
+     z-index: 11;
 }
 
 ::placeholder {

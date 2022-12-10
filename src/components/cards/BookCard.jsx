@@ -6,7 +6,10 @@ const BookCard = (props) => {
      const history = useHistory();
 
      return (
-          <div className="col col-list d-flex justify-content-start align-items-center text-white cursor-pointer">
+          <div
+               key={props.key}
+               className="col col-list d-flex justify-content-start align-items-center text-white cursor-pointer"
+          >
                <div
                     onClick={() =>
                          history.push("/book-profile", {
@@ -23,8 +26,8 @@ const BookCard = (props) => {
                          />
                     </div>
 
-                    <h1 className="fs-4">{book.name}</h1>
-                    <h1 className="fs-5">Price : {book.price} $</h1>
+                    <h1 className="fs-5 text-center mt-2 fw-bold">{book.name}</h1>
+                    <h1 className="fs-6">Price : {book.price} $</h1>
                </div>
           </div>
      );

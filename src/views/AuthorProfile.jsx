@@ -17,7 +17,6 @@ const AuthorProfile = (props) => {
      const [showsDispatched, setShowsDispatched] = useState(false);
 
      const dispatch = useDispatch();
-     
 
      const currentAuthor = useSelector((state) => state.authors.currentAuthor);
      const currentAuthorBooks = useSelector(
@@ -124,8 +123,9 @@ const AuthorProfile = (props) => {
 
                                              <div className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-5 align-items-center align-self-center w-75">
                                                   {currentAuthorBooks.map(
-                                                       (book) => (
+                                                       (book, index) => (
                                                             <BookCard
+                                                                 key={index}
                                                                  book={book}
                                                             />
                                                        )
