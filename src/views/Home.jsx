@@ -51,7 +51,7 @@ const Home = () => {
                     top="150"
                     right="400"
                />
-               <Link to="/">
+               <Link to="/books-recommendations">
                     <Circle
                          size="20"
                          backgroundColor="light-purple"
