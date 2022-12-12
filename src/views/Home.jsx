@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 import Circle from "../components/animation/circle";
+import Header from "../components/header/header";
 
 const Home = () => {
-     const state = useSelector((state) => state);
+     const cookies = new Cookies();
+     const history = useHistory();
+
      useEffect(() => {
-          console.log(state);
-     }, []);
+          document.title = "Sign In | BookNook Library";
+
+          if (isUserAuthenticatedCookie()) {
+               history.push("/books-recommendations");
+          }
+     });
+
+     const isUserAuthenticatedCookie = () => {
+          return cookies.get("bn_aut");
+     };
 
      const [timeNow, setTimeNow] = useState("");
 
@@ -31,7 +42,8 @@ const Home = () => {
      });
 
      return (
-          <div className="home-route position-relative w-100 vh-100">
+          <div className="home-route position-relative w-100 vh-100 overflow-hidden">
+               <Header />
                <Circle
                     size="7"
                     backgroundColor="beige"

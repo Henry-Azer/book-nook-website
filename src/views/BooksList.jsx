@@ -9,6 +9,7 @@ import {
 import bookMark from "../assets/images/Asset-1.png";
 import BookCard from "../components/cards/BookCard";
 import Circle from "../components/animation/circle";
+import Header from "../components/header/header";
 
 const BooksList = () => {
      const [showsDispatched, setShowsDispatched] = useState(false);
@@ -52,7 +53,8 @@ const BooksList = () => {
      // console.log(pagesTotalNumber(totalNumberOfPages));
 
      return (
-          <div className="d-flex justify-content-center align-items-center flex-column w-100 min-vh-100 position-relative overflow-x-hidden">
+          <div className="d-flex justify-content-center align-items-center flex-column w-100 min-vh-100 position-relative overflow-hidden">
+               <Header/>
                <Circle
                     size="10"
                     backgroundColor="beige"

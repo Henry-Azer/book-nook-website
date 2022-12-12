@@ -34,7 +34,7 @@ export const getBookById = (bookId) => (dispatch) => {
 export const findAllBooks = (filter) => (dispatch) => {
      const booksListFilters = {
           pageNumber: filter.pageNumber,
-          pageSize: 15,
+          pageSize: 9,
           sortingByList: [
                {
                     fieldName: "id",

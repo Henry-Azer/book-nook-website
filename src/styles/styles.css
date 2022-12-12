@@ -230,6 +230,11 @@ button:active {
      z-index: -1;
 }
 
+.header{
+     height: 10vh;
+     z-index: 11111111;
+}
+
 /* ---------- MEDIA QUERIES START -------------------- */
 @media only screen and (max-width: 1280px) {
      .form-card {

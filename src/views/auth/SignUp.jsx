@@ -16,9 +16,24 @@ import Circle from "../../components/animation/circle";
 import BookmarkButton from "../../components/buttons/bookmark-button";
 import { userRegistration } from "../../store/actions/users/users-actions";
 import { useDispatch } from "react-redux";
+import Cookies from "universal-cookie";
 // import { userRegistration } from "../../store/actions/users/users-actions";
 
 const SignUp = () => {
+     const cookies = new Cookies();
+
+     useEffect(() => {
+          document.title = "Sign In | BookNook Library";
+
+          if (isUserAuthenticatedCookie()) {
+               history.push("/books-recommendations");
+          }
+     });
+
+     const isUserAuthenticatedCookie = () => {
+          return cookies.get("bn_aut");
+     };
+
      useEffect(() => {
           document.title = "Sign Up | BookNook Library";
      });
@@ -104,7 +119,7 @@ const SignUp = () => {
                     };
 
                     dispatch(userRegistration(user));
-                    
+
                     history.push("/sign-in", {
                          email: values.email,
                          password: values.password,

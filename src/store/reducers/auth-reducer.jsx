@@ -3,6 +3,7 @@ import {
      LOGIN_FAILURE,
      LOGIN_SUCCEEDED,
      CLEAR_LOGIN_DETAILS,
+     GET_CURRENT_USER,
 } from "../types";
 
 export default function auth_reducer(state = {}, action) {
@@ -24,6 +25,11 @@ export default function auth_reducer(state = {}, action) {
                     isUserAuthenticated: false,
                     loginErrorOccurred: true,
                     loginRequest: false,
+               };
+          case GET_CURRENT_USER:
+               return {
+                    ...state,
+                    currentUser: action.payload,
                };
           case CLEAR_LOGIN_DETAILS:
                return {

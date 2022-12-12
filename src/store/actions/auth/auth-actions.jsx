@@ -6,6 +6,7 @@ import {
      LOGIN_FAILURE,
      LOGIN_SUCCEEDED,
      CLEAR_LOGIN_DETAILS,
+     GET_CURRENT_USER,
 } from "../../types";
 
 import Cookies from "universal-cookie";
@@ -76,6 +77,18 @@ export const authenticateUser = (user) => (dispatch) => {
           .catch(function (error) {
                console.log(error);
           });
+};
+
+export const getCurrentUser = () => (dispatch) => {
+     axios.get(`${URL}/auth/current`).then((res) => {
+          if (res.data.success) {
+               console.log(res);
+               dispatch({
+                    type: GET_CURRENT_USER,
+                    payload: res.data.body,
+               });
+          }
+     });
 };
 
 export function clearLoginDetails() {

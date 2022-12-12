@@ -12,13 +12,14 @@ import "react-multi-carousel/lib/styles.css";
 import BookCard from "../components/cards/BookCard";
 import { Link } from "react-router-dom";
 import BookmarkButton from "../components/buttons/bookmark-button";
+import Circle from "../components/animation/circle";
+import Header from "../components/header/header";
 
 const BooksRecommendations = () => {
      const dispatch = useDispatch();
+     const cookies = new Cookies();
 
      const [showsDispatched, setShowsDispatched] = useState(false);
-
-     const cookies = new Cookies();
 
      const isUserAuthenticatedCookie = () => {
           return cookies.get("bn_aut");
@@ -65,7 +66,29 @@ const BooksRecommendations = () => {
      };
 
      return (
-          <div className="w-100 vh-100">
+          <div className="w-100 vh-100 position-relative overflow-hidden">
+               <Header />
+               <Circle
+                    size="10"
+                    backgroundColor="beige"
+                    duration="25"
+                    top="15"
+                    left="-150"
+               />
+               <Circle
+                    size="15"
+                    backgroundColor="light-purple"
+                    duration="40"
+                    bottom="-100"
+                    left="-120"
+               />
+               <Circle
+                    size="12"
+                    backgroundColor="light-purple"
+                    duration="20"
+                    top="200"
+                    right="-200"
+               />
                <div className=" container py-5 h-100 d-flex justify-content-center align-items-center flex-column text-white text-center">
                     <h1 className="fs-2">Our Books Recommendations</h1>
                     {isUserAuthenticatedCookie() ? (
@@ -99,6 +122,9 @@ const BooksRecommendations = () => {
                                         <BookCard book={recommendedBooks[3]} />
                                         <BookCard book={recommendedBooks[4]} />
                                         <BookCard book={recommendedBooks[5]} />
+                                        <BookCard book={recommendedBooks[6]} />
+                                        <BookCard book={recommendedBooks[7]} />
+                                        <BookCard book={recommendedBooks[8]} />
                                    </Carousel>
                               )}
                          </>
