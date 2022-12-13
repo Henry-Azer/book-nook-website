@@ -197,7 +197,7 @@ button:active {
 /* ----- GLOBAL PROPS END ----- */
 /* -------------------------------------------------------- */
 .time-now {
-     right: -100px !important;
+     right: -90px !important;
      letter-spacing: 7px;
 }
 .time-now .time{
