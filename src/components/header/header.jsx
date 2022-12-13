@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Cookies from "universal-cookie";
 import Logo from "../../assets/images/logo-white.png";
 import { BiUserCircle } from "react-icons/bi";
@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
      clearLoginDetails,
      getCurrentUser,
+     signOut,
 } from "../../store/actions/auth/auth-actions";
 
 const Header = (props) => {
@@ -17,8 +18,10 @@ const Header = (props) => {
      };
 
      const dispatch = useDispatch();
+     const history = useHistory();
 
      const [showsDispatched, setShowsDispatched] = useState(false);
+     const [showSignOut, setShowSignOut] = useState(false);
 
      useEffect(() => {
           if (!showsDispatched) {
@@ -77,9 +80,27 @@ const Header = (props) => {
                               </Link>
                          ) : (
                               user && (
-                                   <div className=" d-flex justify-content-center align-items-center h-50 w-25 text-white">
+                                   <div
+                                        className=" d-flex justify-content-center align-items-center h-50 w-25 text-white cursor-pointer position-relative"
+                                        onClick={() =>
+                                             setShowSignOut(!showSignOut)
+                                        }
+                                   >
                                         <BiUserCircle className="fs-4 me-2" />
                                         Hi, {user.firstName}
+                                        <div className="position-absolute sign-out-card">
+                                             <div
+                                                  onClick={() => {
+                                                       signOut();
+                                                       history.push("/");
+                                                  }}
+                                                  className={`light-purple-background w-75 h-100 text-center d-flex justify-content-center align-items-center rounded-bottom ${
+                                                       !showSignOut && "d-none"
+                                                  }`}
+                                             >
+                                                  Sign Out
+                                             </div>
+                                        </div>
                                    </div>
                               )
                          )}

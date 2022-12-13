@@ -201,6 +201,7 @@ button:active {
      right: -35px !important;
 }
 
+
 .book-image-frame {
      width: 250px;
      height: 450px;
@@ -234,6 +235,14 @@ button:active {
      height: 10vh;
      z-index: 11111111;
 }
+.sign-out-card{
+     width: 150px;
+     height: 50px;
+     top: 45px;
+     left: 5px;
+}
+
+
 
 /* ---------- MEDIA QUERIES START -------------------- */
 @media only screen and (max-width: 1280px) {

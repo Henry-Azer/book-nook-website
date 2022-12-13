@@ -91,6 +91,14 @@ export const getCurrentUser = () => (dispatch) => {
      });
 };
 
+export const signOut = () => {
+     axios.get(`${URL}/auth/log-out`).then((res) => {
+          if (res.data.success) {
+               cookies.remove("bn_aut");
+          }
+     });
+};
+
 export function clearLoginDetails() {
      return {
           type: CLEAR_LOGIN_DETAILS,

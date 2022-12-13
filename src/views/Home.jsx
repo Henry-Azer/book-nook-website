@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
 import { Link, useHistory } from "react-router-dom";
 import Cookies from "universal-cookie";
 
@@ -51,7 +52,7 @@ const Home = () => {
                     top="150"
                     right="400"
                />
-               <Link to="/books-recommendations">
+               <Link to="/books-recommendations   ">
                     <Circle
                          size="20"
                          backgroundColor="light-purple"
@@ -79,18 +80,14 @@ const Home = () => {
                     right="600"
                />
 
-               <Link to="/sign-up">
-                    <Circle
-                         size="12"
-                         backgroundColor="light-purple"
-                         duration="31"
-                         bottom="300"
-                         left="50"
-                         hover
-                    >
-                         Sign up
-                    </Circle>
-               </Link>
+               <Circle
+                    size="8"
+                    backgroundColor="beige"
+                    duration="31"
+                    bottom="550"
+                    left="200"
+                    hover
+               ></Circle>
 
                <Circle
                     size="6"
@@ -109,10 +106,10 @@ const Home = () => {
                          left="400"
                          hover
                     >
-                         Sign in
+                         Sign In
                     </Circle>
                </Link>
-               <Link to="/">
+               <Link to="/sign-up">
                     <Circle
                          size="10"
                          backgroundColor="light-purple"
@@ -121,12 +118,26 @@ const Home = () => {
                          right="150"
                          hover
                     >
-                         Why us ?
+                         Sign Up
                     </Circle>
                </Link>
 
                <div className="time-now position-absolute bottom-50 end-0">
-                    <p className="text-white fs-4 m-0">{timeNow}</p>
+                    <p className="text-white fs-3 m-0">{timeNow}</p>
+               </div>
+               <div className="social-media position-absolute bottom-0 start-0 ms-3 d-flex justify-content-center align-content-center flex-column h-100">
+                    <p className="text-white fs-2">
+                         <BsFacebook />
+                    </p>
+                    <p className="text-white fs-2 mt-3">
+                         <BsInstagram />
+                    </p>
+                    <p className="text-white fs-2 mt-3">
+                         <BsTwitter />
+                    </p>
+                    <p className="text-white fs-2 mt-3">
+                         <BsGithub />
+                    </p>
                </div>
           </div>
      );
