@@ -44,7 +44,7 @@ const AuthorProfile = (props) => {
 
 	return (
 		<div>
-			<Header />
+			<Header background="true"/>
 			<div className="author-profile w-100 min-vh-100 vh-100 position-relative overflow-x-hidden">
 				<Circle
 					size="7"
