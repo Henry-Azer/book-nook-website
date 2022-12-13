@@ -17,6 +17,7 @@ import BookmarkButton from "../../components/buttons/bookmark-button";
 import { userRegistration } from "../../store/actions/users/users-actions";
 import { useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
+import TranslateButton from "../../components/buttons/translate-button";
 // import { userRegistration } from "../../store/actions/users/users-actions";
 
 const SignUp = () => {
@@ -166,6 +167,7 @@ const SignUp = () => {
 
      return (
           <div className="sign-up-route vh-100 w-100 position-relative overflow-hidden">
+               <TranslateButton />
                {/* {Object.keys(formik.values).map((value) => console.log(typeof(value)))} */}
                <Circle
                     size="10"

@@ -44,7 +44,7 @@ const Home = () => {
 
      return (
           <div className="home-route position-relative w-100 vh-100 overflow-hidden">
-               <Header />
+               <Header />     
                <Circle
                     size="7"
                     backgroundColor="beige"
@@ -52,7 +52,7 @@ const Home = () => {
                     top="150"
                     right="400"
                />
-               <Link to="/books-recommendations   ">
+               <Link to="/books-recommendations">
                     <Circle
                          size="20"
                          backgroundColor="light-purple"
@@ -87,7 +87,7 @@ const Home = () => {
                     bottom="550"
                     left="200"
                />
-               
+
                <Circle
                     size="4"
                     backgroundColor="light-purple"
@@ -103,7 +103,7 @@ const Home = () => {
                     bottom="300"
                     right="100"
                />
-               
+
                <Circle
                     size="6"
                     backgroundColor="light-purple"
@@ -144,13 +144,22 @@ const Home = () => {
                     <a href="http://facebook.com" className="text-white fs-2">
                          <BsFacebook />
                     </a>
-                    <a href="http://instagram.com" className="text-white fs-2 mt-3">
+                    <a
+                         href="http://instagram.com"
+                         className="text-white fs-2 mt-3"
+                    >
                          <BsInstagram />
                     </a>
-                    <a href="http://twitter.com" className="text-white fs-2 mt-3">
+                    <a
+                         href="http://twitter.com"
+                         className="text-white fs-2 mt-3"
+                    >
                          <BsTwitter />
                     </a>
-                    <a href="http://github.com" className="text-white fs-2 mt-3">
+                    <a
+                         href="http://github.com"
+                         className="text-white fs-2 mt-3"
+                    >
                          <BsGithub />
                     </a>
                </div>

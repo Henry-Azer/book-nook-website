@@ -24,7 +24,7 @@ const Header = (props) => {
      const [showSignOut, setShowSignOut] = useState(false);
 
      useEffect(() => {
-          if (!showsDispatched) {
+          if (isUserAuthenticatedCookie() && !showsDispatched) {
                dispatch(getCurrentUser());
                setShowsDispatched(true);
           }

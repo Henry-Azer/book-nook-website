@@ -12,6 +12,7 @@ import Cookies from "universal-cookie";
 import FormCard from "../../components/forms/form-card";
 import Circle from "../../components/animation/circle";
 import BookmarkButton from "../../components/buttons/bookmark-button";
+import TranslateButton from "../../components/buttons/translate-button";
 
 const SignIn = () => {
      const cookies = new Cookies();
@@ -54,6 +55,7 @@ const SignIn = () => {
 
      return (
           <div className="sign-in-route vh-100 w-100 position-relative overflow-hidden">
+               <TranslateButton />
                <Circle
                     size="10"
                     backgroundColor="beige"
