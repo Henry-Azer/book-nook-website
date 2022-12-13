@@ -197,8 +197,11 @@ button:active {
 /* ----- GLOBAL PROPS END ----- */
 /* -------------------------------------------------------- */
 .time-now {
+     right: -100px !important;
+     letter-spacing: 7px;
+}
+.time-now .time{
      rotate: -90deg;
-     right: -35px !important;
 }
 
 

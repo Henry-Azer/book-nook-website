@@ -90,7 +90,7 @@ const Home = () => {
                
                <Circle
                     size="4"
-                    backgroundColor="beige"
+                    backgroundColor="light-purple"
                     duration="20"
                     bottom="550"
                     left="600"
@@ -102,6 +102,14 @@ const Home = () => {
                     duration="27"
                     bottom="300"
                     right="100"
+               />
+               
+               <Circle
+                    size="6"
+                    backgroundColor="light-purple"
+                    duration="37"
+                    bottom="200"
+                    left="150"
                />
 
                <Link to="/sign-in">
@@ -129,8 +137,8 @@ const Home = () => {
                     </Circle>
                </Link>
 
-               <div className="time-now position-absolute bottom-50 end-0">
-                    <p className="text-white fs-3 m-0">{timeNow}</p>
+               <div className="time-now position-absolute h-100 bottom-0 end-0 d-flex justify-content-center align-items-center">
+                    <p className="time text-white fs-3 m-0 w-100">{timeNow}</p>
                </div>
                <div className="social-media position-absolute bottom-0 start-0 ms-3 d-flex justify-content-center align-content-center flex-column h-100">
                     <a href="#" className="text-white fs-2">
