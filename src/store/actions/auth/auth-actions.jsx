@@ -6,6 +6,7 @@ import {
      LOGIN_FAILURE,
      LOGIN_SUCCEEDED,
      CLEAR_LOGIN_DETAILS,
+     GET_CURRENT_USER,
 } from "../../types";
 
 import Cookies from "universal-cookie";
@@ -15,7 +16,6 @@ const cookies = new Cookies();
 const URL = APIs_URL.STAGING;
 
 export const authenticateUser = (user) => (dispatch) => {
-
      dispatch({ type: LOGIN_REQUEST });
 
      axios.post(`${URL}/auth/log-in`, {
@@ -23,17 +23,17 @@ export const authenticateUser = (user) => (dispatch) => {
           password: user.password,
      })
           .then(function (response) {
-               console.log(response);
-               const accessedUser = null;
-               cookies.set("bn_aut", response.data.body.accessToken);
+               // console.log(response);
                if (response.data.success) {
-                    axios.get(`${URL}/auth/current`).then(
-                         (response) => (console.log(response))
-                    );
-
-                    dispatch({
-                         type: LOGIN_SUCCEEDED,
-                         payload: accessedUser,
+                    cookies.set("bn_aut", response.data.body.accessToken);
+                    axios.get(`${URL}/auth/current`).then((res) => {
+                         if (res.data.success) {
+                              console.log(res);
+                              dispatch({
+                                   type: LOGIN_SUCCEEDED,
+                                   payload: res.data.body,
+                              });
+                         }
                     });
 
                     // if (user.keepLogged) {
@@ -67,16 +67,35 @@ export const authenticateUser = (user) => (dispatch) => {
                     //         //   }
                     //      );
                     // }
-               } else {
-                    dispatch({
-                         type: LOGIN_FAILURE,
-                         payload: response.data.message,
-                    });
                }
           })
           .catch(function (error) {
-               console.log(error);
+               console.log(error.response.data.message);
+               dispatch({
+                    type: LOGIN_FAILURE,
+                    payload: error.response.data.message,
+               });
           });
+};
+
+export const getCurrentUser = () => (dispatch) => {
+     axios.get(`${URL}/auth/current`).then((res) => {
+          if (res.data.success) {
+               console.log(res);
+               dispatch({
+                    type: GET_CURRENT_USER,
+                    payload: res.data.body,
+               });
+          }
+     });
+};
+
+export const signOut = () => {
+     axios.get(`${URL}/auth/log-out`).then((res) => {
+          if (res.data.success) {
+               cookies.remove("bn_aut");
+          }
+     });
 };
 
 export function clearLoginDetails() {

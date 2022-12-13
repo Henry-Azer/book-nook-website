@@ -27,7 +27,6 @@ ReactDOM.render(
           )}
      >
           <BrowserRouter>
-               <TranslateButton />
                <Routes />
           </BrowserRouter>
      </Provider>,

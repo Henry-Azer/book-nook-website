@@ -16,9 +16,25 @@ import Circle from "../../components/animation/circle";
 import BookmarkButton from "../../components/buttons/bookmark-button";
 import { userRegistration } from "../../store/actions/users/users-actions";
 import { useDispatch } from "react-redux";
+import Cookies from "universal-cookie";
+import TranslateButton from "../../components/buttons/translate-button";
 // import { userRegistration } from "../../store/actions/users/users-actions";
 
 const SignUp = () => {
+     const cookies = new Cookies();
+
+     useEffect(() => {
+          document.title = "Sign In | BookNook Library";
+
+          if (isUserAuthenticatedCookie()) {
+               history.push("/books-recommendations");
+          }
+     });
+
+     const isUserAuthenticatedCookie = () => {
+          return cookies.get("bn_aut");
+     };
+
      useEffect(() => {
           document.title = "Sign Up | BookNook Library";
      });
@@ -104,7 +120,7 @@ const SignUp = () => {
                     };
 
                     dispatch(userRegistration(user));
-                    
+
                     history.push("/sign-in", {
                          email: values.email,
                          password: values.password,
@@ -151,6 +167,7 @@ const SignUp = () => {
 
      return (
           <div className="sign-up-route vh-100 w-100 position-relative overflow-hidden">
+               <TranslateButton />
                {/* {Object.keys(formik.values).map((value) => console.log(typeof(value)))} */}
                <Circle
                     size="10"
@@ -242,10 +259,10 @@ const SignUp = () => {
                                         <option value="" disabled>
                                              {t("signUp:gender")}
                                         </option>
-                                        <option value="male">
+                                        <option value="MALE">
                                              {t("signUp:male")}
                                         </option>
-                                        <option value="female">
+                                        <option value="FEMALE">
                                              {t("signUp:female")}
                                         </option>
                                    </select>
@@ -334,7 +351,7 @@ const SignUp = () => {
                               </BookmarkButton>
 
                               <Link
-                                   to="/sign-up"
+                                   to="/sign-in"
                                    className="link-hover text-white"
                               >
                                    {t("signUp:haveAcc")}
