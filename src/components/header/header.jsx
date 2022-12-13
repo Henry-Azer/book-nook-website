@@ -48,9 +48,9 @@ const Header = (props) => {
 
      return (
           <div
-               className={`w-100 header d-flex justify-content-center align-items-center header position-sticky top-0 ${
-                    props.background && "dark-purple-background"
-               }`}
+               className={`w-100 header d-flex justify-content-center align-items-center header top-0 
+               ${ props.background && "dark-purple-background" } ${ props.fixed ? "position-fixed" : "position-sticky" }`
+          }
           >
                <div className="row h-100 w-75 d-flex justify-content-between align-items-center">
                     <div className="col-7 logo h-100">
