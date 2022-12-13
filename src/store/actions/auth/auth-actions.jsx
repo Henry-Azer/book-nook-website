@@ -23,7 +23,7 @@ export const authenticateUser = (user) => (dispatch) => {
           password: user.password,
      })
           .then(function (response) {
-               console.log(response);
+               // console.log(response);
                if (response.data.success) {
                     cookies.set("bn_aut", response.data.body.accessToken);
                     axios.get(`${URL}/auth/current`).then((res) => {
@@ -67,15 +67,14 @@ export const authenticateUser = (user) => (dispatch) => {
                     //         //   }
                     //      );
                     // }
-               } else {
-                    dispatch({
-                         type: LOGIN_FAILURE,
-                         payload: response.data.message,
-                    });
                }
           })
           .catch(function (error) {
-               console.log(error);
+               console.log(error.response.data.message);
+               dispatch({
+                    type: LOGIN_FAILURE,
+                    payload: error.response.data.message,
+               });
           });
 };
 

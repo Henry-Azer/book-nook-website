@@ -18,6 +18,10 @@ const BookDetails = (props) => {
      const bookId = props.location.state.bookId;
 
      useEffect(() => {
+          document.title = "Book Profile | BookNook Library";
+     });
+
+     useEffect(() => {
           if (!showsDispatched) {
                dispatch(getBookById(bookId));
                setShowsDispatched(true);

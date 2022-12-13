@@ -26,6 +26,10 @@ const BooksRecommendations = () => {
      };
 
      useEffect(() => {
+          document.title = "Books Recommendations | BookNook Library";
+     });
+
+     useEffect(() => {
           if (!showsDispatched && isUserAuthenticatedCookie()) {
                dispatch(getRecommendedBooks());
                setShowsDispatched(true);

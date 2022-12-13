@@ -25,6 +25,10 @@ const AuthorProfile = (props) => {
 
      console.log(currentAuthorBooks);
 
+     useEffect(() => {
+          document.title = "Author Profile | BookNook Library";
+     });
+
      const authorId = props.location.state.authorId;
      useEffect(() => {
           if (!showsDispatched) {

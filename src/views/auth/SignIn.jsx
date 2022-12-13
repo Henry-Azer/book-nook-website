@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authenticateUser } from "../../store/actions/auth/auth-actions";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -14,12 +14,15 @@ import Circle from "../../components/animation/circle";
 import BookmarkButton from "../../components/buttons/bookmark-button";
 
 const SignIn = () => {
-
      const cookies = new Cookies();
      const { t, i18n } = useTranslation();
      const dispatch = useDispatch();
      const history = useHistory();
-     
+
+     const state = useSelector((state) => state.auth);
+
+     console.log(state);
+
      const formik = useFormik({
           initialValues: {
                email: "",
@@ -28,23 +31,23 @@ const SignIn = () => {
           },
           validationSchema: Yup.object({
                email: Yup.string()
-               .email(t("signIn:invalidEmail"))
-               .required(t("signIn:required")),
+                    .email(t("signIn:invalidEmail"))
+                    .required(t("signIn:required")),
                password: Yup.string().required(t("signIn:required")),
           }),
           onSubmit: (values) => {
                dispatch(authenticateUser(values));
           },
      });
-     
+
      useEffect(() => {
           document.title = "Sign In | BookNook Library";
-          
+
           if (isUserAuthenticatedCookie()) {
                history.push("/");
           }
      });
-     
+
      const isUserAuthenticatedCookie = () => {
           return cookies.get("bn_aut");
      };
@@ -118,6 +121,10 @@ const SignIn = () => {
                     <BookmarkButton type="submit">
                          {t("signIn:signIn")}
                     </BookmarkButton>
+                    {state.loginErrorOccurred && (
+                         <p className="beige-text">{state.loginError}</p>
+                    )}
+
                     <Link to="/sign-up" className="link-hover text-white">
                          {t("signIn:newAcc")}
                     </Link>

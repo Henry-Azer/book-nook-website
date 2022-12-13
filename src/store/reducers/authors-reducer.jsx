@@ -16,8 +16,8 @@ export default function authors_reducer(state = {}, action) {
           case CLEAR_AUTHORS_DETAILS:
                return {
                     ...state,
-                    // gettingAuthors: action.payload,
-                    // currentAuthor: action.payload,
+                    gettingAuthors: action.payload,
+                    currentAuthor: action.payload,
                };
 
           default:

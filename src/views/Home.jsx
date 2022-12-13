@@ -11,7 +11,7 @@ const Home = () => {
      const history = useHistory();
 
      useEffect(() => {
-          document.title = "Sign In | BookNook Library";
+          document.title = "Home | BookNook Library";
 
           if (isUserAuthenticatedCookie()) {
                history.push("/books-recommendations");
@@ -141,16 +141,16 @@ const Home = () => {
                     <p className="time text-white fs-3 m-0 w-100">{timeNow}</p>
                </div>
                <div className="social-media position-absolute bottom-0 start-0 ms-3 d-flex justify-content-center align-content-center flex-column h-100">
-                    <a href="#" className="text-white fs-2">
+                    <a href="http://facebook.com" className="text-white fs-2">
                          <BsFacebook />
                     </a>
-                    <a href="#" className="text-white fs-2 mt-3">
+                    <a href="http://instagram.com" className="text-white fs-2 mt-3">
                          <BsInstagram />
                     </a>
-                    <a href="#" className="text-white fs-2 mt-3">
+                    <a href="http://twitter.com" className="text-white fs-2 mt-3">
                          <BsTwitter />
                     </a>
-                    <a href="#" className="text-white fs-2 mt-3">
+                    <a href="http://github.com" className="text-white fs-2 mt-3">
                          <BsGithub />
                     </a>
                </div>
