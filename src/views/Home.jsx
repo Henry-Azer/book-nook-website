@@ -86,8 +86,15 @@ const Home = () => {
                     duration="31"
                     bottom="550"
                     left="200"
-                    hover
-               ></Circle>
+               />
+               
+               <Circle
+                    size="4"
+                    backgroundColor="beige"
+                    duration="20"
+                    bottom="550"
+                    left="600"
+               />
 
                <Circle
                     size="6"
@@ -126,18 +133,18 @@ const Home = () => {
                     <p className="text-white fs-3 m-0">{timeNow}</p>
                </div>
                <div className="social-media position-absolute bottom-0 start-0 ms-3 d-flex justify-content-center align-content-center flex-column h-100">
-                    <p className="text-white fs-2">
+                    <a href="#" className="text-white fs-2">
                          <BsFacebook />
-                    </p>
-                    <p className="text-white fs-2 mt-3">
+                    </a>
+                    <a href="#" className="text-white fs-2 mt-3">
                          <BsInstagram />
-                    </p>
-                    <p className="text-white fs-2 mt-3">
+                    </a>
+                    <a href="#" className="text-white fs-2 mt-3">
                          <BsTwitter />
-                    </p>
-                    <p className="text-white fs-2 mt-3">
+                    </a>
+                    <a href="#" className="text-white fs-2 mt-3">
                          <BsGithub />
-                    </p>
+                    </a>
                </div>
           </div>
      );
