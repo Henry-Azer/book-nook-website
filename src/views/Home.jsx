@@ -29,14 +29,22 @@ const Home = () => {
 
           setInterval(() => {
                setTimeNow(
-                    `${
-                         new Date().getHours() > 12
-                              ? new Date().getHours() % 12
-                              : new Date().getHours()
-                    } : ${new Date().getMinutes()} : ${new Date().getSeconds()} ${
-                         new Date().getHours() > 12 ? "PM" : "AM"
-                    }`
+                    `${new Date().toLocaleTimeString("en-US", {
+                         hour: "2-digit",
+                         minute: "2-digit",
+                         second: "2-digit",
+                    })}`
                );
+
+               // setTimeNow(
+               //      `${
+               //           new Date().getHours() > 12
+               //                ? new Date().getHours() % 12
+               //                : new Date().getHours()
+               //      } : ${new Date().getMinutes()} : ${new Date().getSeconds()} ${
+               //           new Date().getHours() > 12 ? "PM" : "AM"
+               //      }`
+               // );
           }, 1000);
 
           // console.log(timeNow);
@@ -44,7 +52,7 @@ const Home = () => {
 
      return (
           <div className="home-route position-relative w-100 vh-100 overflow-hidden">
-               <Header />     
+               <Header />
                <Circle
                     size="7"
                     backgroundColor="beige"
