@@ -11,6 +11,11 @@ import BookCard from "../components/cards/BookCard";
 import Circle from "../components/animation/circle";
 import Header from "../components/header/header";
 
+import Pagination from "react-js-pagination";
+
+import { RiArrowDropLeftFill, RiArrowDropRightFill } from "react-icons/ri";
+import { TfiAngleDoubleLeft, TfiAngleDoubleRight } from "react-icons/tfi";
+
 const BooksList = () => {
      const [showsDispatched, setShowsDispatched] = useState(false);
      const [pageNumberState, setPageNumberState] = useState(1);
@@ -35,26 +40,29 @@ const BooksList = () => {
      const totalNumberOfPages = useSelector(
           (state) => state.books.totalNumberOfPages
      );
+     const totalNumberOfElements = useSelector(
+          (state) => state.books.totalNumberOfElements
+     );
 
-     const pagesTotalNumber = (number) => {
-          console.log(number);
-          const pagesArray = [];
-          for (let i = 1; i <= number; i++) {
-               pagesArray.push(i);
-          }
+     // const pagesTotalNumber = (number) => {
+     //      console.log(number);
+     //      const pagesArray = [];
+     //      for (let i = 1; i <= number; i++) {
+     //           pagesArray.push(i);
+     //      }
 
-          console.log(pagesArray);
-          return pagesArray;
-     };
+     //      console.log(pagesArray);
+     //      return pagesArray;
+     // };
 
      console.log(booksList);
-     console.log(totalNumberOfPages);
+     console.log(totalNumberOfElements);
 
      // console.log(pagesTotalNumber(totalNumberOfPages));
 
      return (
           <div className="d-flex justify-content-center align-items-center flex-column w-100 min-vh-100 position-relative overflow-hidden">
-               <Header/>
+               <Header />
                <Circle
                     size="10"
                     backgroundColor="beige"
@@ -111,7 +119,8 @@ const BooksList = () => {
                               ))}
                     </div>
                     <div className="page-numbers w-100 d-flex justify-content-center align-items-center">
-                         {pagesTotalNumber(totalNumberOfPages) &&
+                         {
+                              /* {pagesTotalNumber(totalNumberOfPages) &&
                               pagesTotalNumber(totalNumberOfPages).map(
                                    (pageNumber) => (
                                         <button
@@ -143,7 +152,38 @@ const BooksList = () => {
                                              {pageNumber}
                                         </button>
                                    )
-                              )}
+                              )} */
+
+                              totalNumberOfPages && (
+                                   <Pagination
+                                        pageRangeDisplayed={5}
+                                        itemsCountPerPage={9}
+                                        totalItemsCount={totalNumberOfElements}
+                                        onChange={(pageNumber) => {
+                                             dispatch(
+                                                  findAllBooks({
+                                                       pageNumber: pageNumber,
+                                                  })
+                                             );
+                                             setPageNumberState(pageNumber);
+                                        }}
+                                        activePage={pageNumberState}
+                                        prevPageText={<RiArrowDropLeftFill />}
+                                        nextPageText={<RiArrowDropRightFill />}
+                                        firstPageText={<TfiAngleDoubleLeft />}
+                                        lastPageText={<TfiAngleDoubleRight />}
+                                        itemClass="mx-2"
+                                        linkClass="text-white text-decoration-none link-hover"
+                                        activeClass="position-relative no-hover"
+                                        activeLinkClass="no-hover bookmark-link"
+                                        itemClassLast="border rounded light-purple-border px-1 mx-0"
+                                        itemClassFirst="border rounded light-purple-border px-1 mx-0"
+                                        itemClassPrev="border rounded light-purple-border px-1 mx-0"
+                                        itemClassNext="border rounded light-purple-border px-1 mx-0"
+                                        disabledClass="opacity-50 cursor-default no-hover"
+                                   />
+                              )
+                         }
                     </div>
                </div>
           </div>

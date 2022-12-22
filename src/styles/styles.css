@@ -182,7 +182,10 @@ button:active {
      left: 20px;
 }
 .cursor-pointer {
-     cursor: pointer;
+     cursor: pointer !important;
+}
+.cursor-default a {
+     cursor: default !important;
 }
 .overflow-x-hidden {
      overflow-x: hidden;
@@ -190,6 +193,12 @@ button:active {
 .text-justify {
      text-align: justify;
 }
+.no-hover :hover,
+.no-hover a :hover {
+     pointer-events: none !important;
+}
+
+
 /* .select select:hover ~ .select_arrow,
 .select select:focus ~ .select_arrow {
      border-color: var(--dark-purple);
@@ -200,10 +209,9 @@ button:active {
      right: -90px !important;
      letter-spacing: 7px;
 }
-.time-now .time{
+.time-now .time {
      rotate: -90deg;
 }
-
 
 .book-image-frame {
      width: 250px;
@@ -234,18 +242,16 @@ button:active {
      z-index: -1;
 }
 
-.header{
+.header {
      height: 10vh;
      z-index: 11111111;
 }
-.sign-out-card{
+.sign-out-card {
      width: 150px;
      height: 50px;
      top: 45px;
      left: 5px;
 }
-
-
 
 /* ---------- MEDIA QUERIES START -------------------- */
 @media only screen and (max-width: 1280px) {

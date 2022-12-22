@@ -19,6 +19,7 @@ export default function books_reducer(state = {}, action) {
                     gettingBooks: false,
                     booksList: action.payload.result,
                     totalNumberOfPages: action.payload.totalNumberOfPages,
+                    totalNumberOfElements: action.payload.totalNumberOfElements,
                };
 
           case BOOK_BY_ID:
