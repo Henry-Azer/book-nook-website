@@ -198,7 +198,18 @@ button:active {
      pointer-events: none !important;
 }
 
-
+.bookmark-link {
+     color: var(--dark-purple) !important;
+}
+.bookmark-link::before {
+     content: url("../assets/images/Asset-1.png");
+     transform: scale(0.8);
+     position: absolute;
+     top: -45px;
+     left: -22px;
+     width: 10px;
+     z-index: -5;
+}
 /* .select select:hover ~ .select_arrow,
 .select select:focus ~ .select_arrow {
      border-color: var(--dark-purple);
